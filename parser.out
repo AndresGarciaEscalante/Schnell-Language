@@ -1,0 +1,2846 @@
+Created by PLY version 3.10 (http://www.dabeaz.com/ply)
+
+Grammar
+
+Rule 0     S' -> Programa
+Rule 1     Programa -> START SAUXI PUNTOS V MethodsBlock SSAUXI MainBlock ENDSTART SEMICOLON SSSAUXI
+Rule 2     Programa -> empty
+Rule 3     SAUXI -> <empty>
+Rule 4     SSAUXI -> <empty>
+Rule 5     SSSAUXI -> <empty>
+Rule 6     V -> V Tipo_M
+Rule 7     V -> V Tipo_A
+Rule 8     V -> empty
+Rule 9     Tipo_M -> INT ID ASIGNACION INTEGER SEMICOLON
+Rule 10    Tipo_M -> FLO ID ASIGNACION FLOAT SEMICOLON
+Rule 11    Tipo_A -> INT Arreglo2 ID TAUXI LCORCHETE INTEGER TTAUXI RCORCHETE LCORCHETE INTEGER TTTAUXI RCORCHETE SEMICOLON
+Rule 12    Tipo_A -> FLO Arreglo2 ID TAUXI LCORCHETE INTEGER TTAUXI RCORCHETE LCORCHETE INTEGER TTTAUXI RCORCHETE SEMICOLON
+Rule 13    Tipo_A -> INT Arreglo1 ID TAUXI LCORCHETE INTEGER TTAUXI RCORCHETE SEMICOLON
+Rule 14    Tipo_A -> FLO Arreglo1 ID TAUXI LCORCHETE INTEGER TTAUXI RCORCHETE SEMICOLON
+Rule 15    TAUXI -> <empty>
+Rule 16    TTAUXI -> <empty>
+Rule 17    TTTAUXI -> <empty>
+Rule 18    MainBlock -> MAIN LPAREN RPAREN PUNTOS Statements ENDMAIN SEMICOLON
+Rule 19    MethodsBlock -> METHOD ID MAUXI LPAREN RPAREN PUNTOS Statements ENDMETHOD SEMICOLON MMAUXI MethodsBlock
+Rule 20    MethodsBlock -> empty
+Rule 21    MAUXI -> <empty>
+Rule 22    MMAUXI -> <empty>
+Rule 23    Statements -> ID ASIGNACION expression SEMICOLON Auxi Statements
+Rule 24    Statements -> SVar ASIGNACION expression SEMICOLON AuxiV Statements
+Rule 25    Statements -> FOR LPAREN ID ASIGNACION expression COMA FAUXI FFAUXI Comparison FFFAUXI RPAREN PUNTOS Statements FFFFAUXI ENDFOR SEMICOLON Statements
+Rule 26    Statements -> WHILE WAUXI LPAREN Comparison WWAUXI RPAREN PUNTOS Statements WWWAUXI ENDWHILE SEMICOLON Statements
+Rule 27    Statements -> IF LPAREN Comparison RPAREN IAUXI PUNTOS TRUE PUNTOS Statements ENDTRUE SEMICOLON FALSE PUNTOS IIAUXI Statements ENDFALSE SEMICOLON ENDIF SEMICOLON IIIAUXI Statements
+Rule 28    Statements -> IF LPAREN Comparison RPAREN IAUXI PUNTOS TRUE PUNTOS Statements ENDTRUE SEMICOLON ENDIF SEMICOLON IIIAUXI Statements
+Rule 29    Statements -> PRINTA LPAREN ID PAUXI RPAREN SEMICOLON Statements
+Rule 30    Statements -> PRINTA LPAREN SVar PAUXIV RPAREN SEMICOLON Statements
+Rule 31    Statements -> READ LPAREN ID RAUXI RPAREN SEMICOLON Statements
+Rule 32    Statements -> READ LPAREN SVar RAUXIV RPAREN SEMICOLON Statements
+Rule 33    Statements -> CALL LPAREN ID CAUXI RPAREN SEMICOLON Statements
+Rule 34    Statements -> empty
+Rule 35    SVar -> ID VAUXI LCORCHETE VVAUXI expression VVVAUXI RCORCHETE
+Rule 36    SVar -> ID VAUXI LCORCHETE VVAUXI expression VVVAUXI RCORCHETE LCORCHETE expression VVVVAUXI RCORCHETE
+Rule 37    VAUXI -> <empty>
+Rule 38    VVAUXI -> <empty>
+Rule 39    VVVAUXI -> <empty>
+Rule 40    VVVVAUXI -> <empty>
+Rule 41    PAUXI -> <empty>
+Rule 42    PAUXIV -> <empty>
+Rule 43    RAUXI -> <empty>
+Rule 44    RAUXIV -> <empty>
+Rule 45    CAUXI -> <empty>
+Rule 46    FAUXI -> <empty>
+Rule 47    FFAUXI -> <empty>
+Rule 48    FFFAUXI -> <empty>
+Rule 49    FFFFAUXI -> <empty>
+Rule 50    WAUXI -> <empty>
+Rule 51    WWAUXI -> <empty>
+Rule 52    WWWAUXI -> <empty>
+Rule 53    IAUXI -> <empty>
+Rule 54    IIAUXI -> <empty>
+Rule 55    IIIAUXI -> <empty>
+Rule 56    Auxi -> <empty>
+Rule 57    AuxiV -> <empty>
+Rule 58    Comparison -> ID IGUALDADCOM ID
+Rule 59    Comparison -> ID MAYORCOM ID
+Rule 60    Comparison -> ID MENORCOM ID
+Rule 61    expression -> expression PLUS S
+Rule 62    expression -> S
+Rule 63    S -> S MINUS T
+Rule 64    S -> T
+Rule 65    T -> T TIMES F
+Rule 66    T -> F
+Rule 67    F -> F DIVIDE R
+Rule 68    F -> R
+Rule 69    R -> ID
+Rule 70    R -> SVar
+Rule 71    R -> INTEGER
+Rule 72    R -> FLOAT
+Rule 73    R -> LPAREN expression RPAREN
+Rule 74    empty -> <empty>
+
+Terminals, with rules where they appear
+
+ASIGNACION           : 9 10 23 24 25
+Arreglo1             : 13 14
+Arreglo2             : 11 12
+CALL                 : 33
+COMA                 : 25
+DIVIDE               : 67
+ENDFALSE             : 27
+ENDFOR               : 25
+ENDIF                : 27 28
+ENDMAIN              : 18
+ENDMETHOD            : 19
+ENDSTART             : 1
+ENDTRUE              : 27 28
+ENDWHILE             : 26
+FALSE                : 27
+FLO                  : 10 12 14
+FLOAT                : 10 72
+FOR                  : 25
+ID                   : 9 10 11 12 13 14 19 23 25 29 31 33 35 36 58 58 59 59 60 60 69
+IF                   : 27 28
+IGUALDADCOM          : 58
+INT                  : 9 11 13
+INTEGER              : 9 11 11 12 12 13 14 71
+LCORCHETE            : 11 11 12 12 13 14 35 36 36
+LPAREN               : 18 19 25 26 27 28 29 30 31 32 33 73
+MAIN                 : 18
+MAYORCOM             : 59
+MENORCOM             : 60
+METHOD               : 19
+MINUS                : 63
+PLUS                 : 61
+PRINTA               : 29 30
+PUNTOS               : 1 18 19 25 26 27 27 27 28 28
+RCORCHETE            : 11 11 12 12 13 14 35 36 36
+READ                 : 31 32
+RPAREN               : 18 19 25 26 27 28 29 30 31 32 33 73
+SEMICOLON            : 1 9 10 11 12 13 14 18 19 23 24 25 26 27 27 27 28 28 29 30 31 32 33
+START                : 1
+TIMES                : 65
+TRUE                 : 27 28
+WHILE                : 26
+error                : 
+
+Nonterminals, with rules where they appear
+
+Auxi                 : 23
+AuxiV                : 24
+CAUXI                : 33
+Comparison           : 25 26 27 28
+F                    : 65 66 67
+FAUXI                : 25
+FFAUXI               : 25
+FFFAUXI              : 25
+FFFFAUXI             : 25
+IAUXI                : 27 28
+IIAUXI               : 27
+IIIAUXI              : 27 28
+MAUXI                : 19
+MMAUXI               : 19
+MainBlock            : 1
+MethodsBlock         : 1 19
+PAUXI                : 29
+PAUXIV               : 30
+Programa             : 0
+R                    : 67 68
+RAUXI                : 31
+RAUXIV               : 32
+S                    : 61 62 63
+SAUXI                : 1
+SSAUXI               : 1
+SSSAUXI              : 1
+SVar                 : 24 30 32 70
+Statements           : 18 19 23 24 25 25 26 26 27 27 27 28 28 29 30 31 32 33
+T                    : 63 64 65
+TAUXI                : 11 12 13 14
+TTAUXI               : 11 12 13 14
+TTTAUXI              : 11 12
+Tipo_A               : 7
+Tipo_M               : 6
+V                    : 1 6 7
+VAUXI                : 35 36
+VVAUXI               : 35 36
+VVVAUXI              : 35 36
+VVVVAUXI             : 36
+WAUXI                : 26
+WWAUXI               : 26
+WWWAUXI              : 26
+empty                : 2 8 20 34
+expression           : 23 24 25 35 36 36 61 73
+
+Parsing method: LALR
+
+state 0
+
+    (0) S' -> . Programa
+    (1) Programa -> . START SAUXI PUNTOS V MethodsBlock SSAUXI MainBlock ENDSTART SEMICOLON SSSAUXI
+    (2) Programa -> . empty
+    (74) empty -> .
+
+    START           shift and go to state 2
+    $end            reduce using rule 74 (empty -> .)
+
+    Programa                       shift and go to state 1
+    empty                          shift and go to state 3
+
+state 1
+
+    (0) S' -> Programa .
+
+
+
+state 2
+
+    (1) Programa -> START . SAUXI PUNTOS V MethodsBlock SSAUXI MainBlock ENDSTART SEMICOLON SSSAUXI
+    (3) SAUXI -> .
+
+    PUNTOS          reduce using rule 3 (SAUXI -> .)
+
+    SAUXI                          shift and go to state 4
+
+state 3
+
+    (2) Programa -> empty .
+
+    $end            reduce using rule 2 (Programa -> empty .)
+
+
+state 4
+
+    (1) Programa -> START SAUXI . PUNTOS V MethodsBlock SSAUXI MainBlock ENDSTART SEMICOLON SSSAUXI
+
+    PUNTOS          shift and go to state 5
+
+
+state 5
+
+    (1) Programa -> START SAUXI PUNTOS . V MethodsBlock SSAUXI MainBlock ENDSTART SEMICOLON SSSAUXI
+    (6) V -> . V Tipo_M
+    (7) V -> . V Tipo_A
+    (8) V -> . empty
+    (74) empty -> .
+
+    METHOD          reduce using rule 74 (empty -> .)
+    INT             reduce using rule 74 (empty -> .)
+    FLO             reduce using rule 74 (empty -> .)
+    MAIN            reduce using rule 74 (empty -> .)
+
+    V                              shift and go to state 6
+    empty                          shift and go to state 7
+
+state 6
+
+    (1) Programa -> START SAUXI PUNTOS V . MethodsBlock SSAUXI MainBlock ENDSTART SEMICOLON SSSAUXI
+    (6) V -> V . Tipo_M
+    (7) V -> V . Tipo_A
+    (19) MethodsBlock -> . METHOD ID MAUXI LPAREN RPAREN PUNTOS Statements ENDMETHOD SEMICOLON MMAUXI MethodsBlock
+    (20) MethodsBlock -> . empty
+    (9) Tipo_M -> . INT ID ASIGNACION INTEGER SEMICOLON
+    (10) Tipo_M -> . FLO ID ASIGNACION FLOAT SEMICOLON
+    (11) Tipo_A -> . INT Arreglo2 ID TAUXI LCORCHETE INTEGER TTAUXI RCORCHETE LCORCHETE INTEGER TTTAUXI RCORCHETE SEMICOLON
+    (12) Tipo_A -> . FLO Arreglo2 ID TAUXI LCORCHETE INTEGER TTAUXI RCORCHETE LCORCHETE INTEGER TTTAUXI RCORCHETE SEMICOLON
+    (13) Tipo_A -> . INT Arreglo1 ID TAUXI LCORCHETE INTEGER TTAUXI RCORCHETE SEMICOLON
+    (14) Tipo_A -> . FLO Arreglo1 ID TAUXI LCORCHETE INTEGER TTAUXI RCORCHETE SEMICOLON
+    (74) empty -> .
+
+    METHOD          shift and go to state 11
+    INT             shift and go to state 13
+    FLO             shift and go to state 14
+    MAIN            reduce using rule 74 (empty -> .)
+
+    MethodsBlock                   shift and go to state 8
+    Tipo_M                         shift and go to state 9
+    Tipo_A                         shift and go to state 10
+    empty                          shift and go to state 12
+
+state 7
+
+    (8) V -> empty .
+
+    METHOD          reduce using rule 8 (V -> empty .)
+    INT             reduce using rule 8 (V -> empty .)
+    FLO             reduce using rule 8 (V -> empty .)
+    MAIN            reduce using rule 8 (V -> empty .)
+
+
+state 8
+
+    (1) Programa -> START SAUXI PUNTOS V MethodsBlock . SSAUXI MainBlock ENDSTART SEMICOLON SSSAUXI
+    (4) SSAUXI -> .
+
+    MAIN            reduce using rule 4 (SSAUXI -> .)
+
+    SSAUXI                         shift and go to state 15
+
+state 9
+
+    (6) V -> V Tipo_M .
+
+    METHOD          reduce using rule 6 (V -> V Tipo_M .)
+    INT             reduce using rule 6 (V -> V Tipo_M .)
+    FLO             reduce using rule 6 (V -> V Tipo_M .)
+    MAIN            reduce using rule 6 (V -> V Tipo_M .)
+
+
+state 10
+
+    (7) V -> V Tipo_A .
+
+    METHOD          reduce using rule 7 (V -> V Tipo_A .)
+    INT             reduce using rule 7 (V -> V Tipo_A .)
+    FLO             reduce using rule 7 (V -> V Tipo_A .)
+    MAIN            reduce using rule 7 (V -> V Tipo_A .)
+
+
+state 11
+
+    (19) MethodsBlock -> METHOD . ID MAUXI LPAREN RPAREN PUNTOS Statements ENDMETHOD SEMICOLON MMAUXI MethodsBlock
+
+    ID              shift and go to state 16
+
+
+state 12
+
+    (20) MethodsBlock -> empty .
+
+    MAIN            reduce using rule 20 (MethodsBlock -> empty .)
+
+
+state 13
+
+    (9) Tipo_M -> INT . ID ASIGNACION INTEGER SEMICOLON
+    (11) Tipo_A -> INT . Arreglo2 ID TAUXI LCORCHETE INTEGER TTAUXI RCORCHETE LCORCHETE INTEGER TTTAUXI RCORCHETE SEMICOLON
+    (13) Tipo_A -> INT . Arreglo1 ID TAUXI LCORCHETE INTEGER TTAUXI RCORCHETE SEMICOLON
+
+    ID              shift and go to state 17
+    Arreglo2        shift and go to state 18
+    Arreglo1        shift and go to state 19
+
+
+state 14
+
+    (10) Tipo_M -> FLO . ID ASIGNACION FLOAT SEMICOLON
+    (12) Tipo_A -> FLO . Arreglo2 ID TAUXI LCORCHETE INTEGER TTAUXI RCORCHETE LCORCHETE INTEGER TTTAUXI RCORCHETE SEMICOLON
+    (14) Tipo_A -> FLO . Arreglo1 ID TAUXI LCORCHETE INTEGER TTAUXI RCORCHETE SEMICOLON
+
+    ID              shift and go to state 20
+    Arreglo2        shift and go to state 21
+    Arreglo1        shift and go to state 22
+
+
+state 15
+
+    (1) Programa -> START SAUXI PUNTOS V MethodsBlock SSAUXI . MainBlock ENDSTART SEMICOLON SSSAUXI
+    (18) MainBlock -> . MAIN LPAREN RPAREN PUNTOS Statements ENDMAIN SEMICOLON
+
+    MAIN            shift and go to state 24
+
+    MainBlock                      shift and go to state 23
+
+state 16
+
+    (19) MethodsBlock -> METHOD ID . MAUXI LPAREN RPAREN PUNTOS Statements ENDMETHOD SEMICOLON MMAUXI MethodsBlock
+    (21) MAUXI -> .
+
+    LPAREN          reduce using rule 21 (MAUXI -> .)
+
+    MAUXI                          shift and go to state 25
+
+state 17
+
+    (9) Tipo_M -> INT ID . ASIGNACION INTEGER SEMICOLON
+
+    ASIGNACION      shift and go to state 26
+
+
+state 18
+
+    (11) Tipo_A -> INT Arreglo2 . ID TAUXI LCORCHETE INTEGER TTAUXI RCORCHETE LCORCHETE INTEGER TTTAUXI RCORCHETE SEMICOLON
+
+    ID              shift and go to state 27
+
+
+state 19
+
+    (13) Tipo_A -> INT Arreglo1 . ID TAUXI LCORCHETE INTEGER TTAUXI RCORCHETE SEMICOLON
+
+    ID              shift and go to state 28
+
+
+state 20
+
+    (10) Tipo_M -> FLO ID . ASIGNACION FLOAT SEMICOLON
+
+    ASIGNACION      shift and go to state 29
+
+
+state 21
+
+    (12) Tipo_A -> FLO Arreglo2 . ID TAUXI LCORCHETE INTEGER TTAUXI RCORCHETE LCORCHETE INTEGER TTTAUXI RCORCHETE SEMICOLON
+
+    ID              shift and go to state 30
+
+
+state 22
+
+    (14) Tipo_A -> FLO Arreglo1 . ID TAUXI LCORCHETE INTEGER TTAUXI RCORCHETE SEMICOLON
+
+    ID              shift and go to state 31
+
+
+state 23
+
+    (1) Programa -> START SAUXI PUNTOS V MethodsBlock SSAUXI MainBlock . ENDSTART SEMICOLON SSSAUXI
+
+    ENDSTART        shift and go to state 32
+
+
+state 24
+
+    (18) MainBlock -> MAIN . LPAREN RPAREN PUNTOS Statements ENDMAIN SEMICOLON
+
+    LPAREN          shift and go to state 33
+
+
+state 25
+
+    (19) MethodsBlock -> METHOD ID MAUXI . LPAREN RPAREN PUNTOS Statements ENDMETHOD SEMICOLON MMAUXI MethodsBlock
+
+    LPAREN          shift and go to state 34
+
+
+state 26
+
+    (9) Tipo_M -> INT ID ASIGNACION . INTEGER SEMICOLON
+
+    INTEGER         shift and go to state 35
+
+
+state 27
+
+    (11) Tipo_A -> INT Arreglo2 ID . TAUXI LCORCHETE INTEGER TTAUXI RCORCHETE LCORCHETE INTEGER TTTAUXI RCORCHETE SEMICOLON
+    (15) TAUXI -> .
+
+    LCORCHETE       reduce using rule 15 (TAUXI -> .)
+
+    TAUXI                          shift and go to state 36
+
+state 28
+
+    (13) Tipo_A -> INT Arreglo1 ID . TAUXI LCORCHETE INTEGER TTAUXI RCORCHETE SEMICOLON
+    (15) TAUXI -> .
+
+    LCORCHETE       reduce using rule 15 (TAUXI -> .)
+
+    TAUXI                          shift and go to state 37
+
+state 29
+
+    (10) Tipo_M -> FLO ID ASIGNACION . FLOAT SEMICOLON
+
+    FLOAT           shift and go to state 38
+
+
+state 30
+
+    (12) Tipo_A -> FLO Arreglo2 ID . TAUXI LCORCHETE INTEGER TTAUXI RCORCHETE LCORCHETE INTEGER TTTAUXI RCORCHETE SEMICOLON
+    (15) TAUXI -> .
+
+    LCORCHETE       reduce using rule 15 (TAUXI -> .)
+
+    TAUXI                          shift and go to state 39
+
+state 31
+
+    (14) Tipo_A -> FLO Arreglo1 ID . TAUXI LCORCHETE INTEGER TTAUXI RCORCHETE SEMICOLON
+    (15) TAUXI -> .
+
+    LCORCHETE       reduce using rule 15 (TAUXI -> .)
+
+    TAUXI                          shift and go to state 40
+
+state 32
+
+    (1) Programa -> START SAUXI PUNTOS V MethodsBlock SSAUXI MainBlock ENDSTART . SEMICOLON SSSAUXI
+
+    SEMICOLON       shift and go to state 41
+
+
+state 33
+
+    (18) MainBlock -> MAIN LPAREN . RPAREN PUNTOS Statements ENDMAIN SEMICOLON
+
+    RPAREN          shift and go to state 42
+
+
+state 34
+
+    (19) MethodsBlock -> METHOD ID MAUXI LPAREN . RPAREN PUNTOS Statements ENDMETHOD SEMICOLON MMAUXI MethodsBlock
+
+    RPAREN          shift and go to state 43
+
+
+state 35
+
+    (9) Tipo_M -> INT ID ASIGNACION INTEGER . SEMICOLON
+
+    SEMICOLON       shift and go to state 44
+
+
+state 36
+
+    (11) Tipo_A -> INT Arreglo2 ID TAUXI . LCORCHETE INTEGER TTAUXI RCORCHETE LCORCHETE INTEGER TTTAUXI RCORCHETE SEMICOLON
+
+    LCORCHETE       shift and go to state 45
+
+
+state 37
+
+    (13) Tipo_A -> INT Arreglo1 ID TAUXI . LCORCHETE INTEGER TTAUXI RCORCHETE SEMICOLON
+
+    LCORCHETE       shift and go to state 46
+
+
+state 38
+
+    (10) Tipo_M -> FLO ID ASIGNACION FLOAT . SEMICOLON
+
+    SEMICOLON       shift and go to state 47
+
+
+state 39
+
+    (12) Tipo_A -> FLO Arreglo2 ID TAUXI . LCORCHETE INTEGER TTAUXI RCORCHETE LCORCHETE INTEGER TTTAUXI RCORCHETE SEMICOLON
+
+    LCORCHETE       shift and go to state 48
+
+
+state 40
+
+    (14) Tipo_A -> FLO Arreglo1 ID TAUXI . LCORCHETE INTEGER TTAUXI RCORCHETE SEMICOLON
+
+    LCORCHETE       shift and go to state 49
+
+
+state 41
+
+    (1) Programa -> START SAUXI PUNTOS V MethodsBlock SSAUXI MainBlock ENDSTART SEMICOLON . SSSAUXI
+    (5) SSSAUXI -> .
+
+    $end            reduce using rule 5 (SSSAUXI -> .)
+
+    SSSAUXI                        shift and go to state 50
+
+state 42
+
+    (18) MainBlock -> MAIN LPAREN RPAREN . PUNTOS Statements ENDMAIN SEMICOLON
+
+    PUNTOS          shift and go to state 51
+
+
+state 43
+
+    (19) MethodsBlock -> METHOD ID MAUXI LPAREN RPAREN . PUNTOS Statements ENDMETHOD SEMICOLON MMAUXI MethodsBlock
+
+    PUNTOS          shift and go to state 52
+
+
+state 44
+
+    (9) Tipo_M -> INT ID ASIGNACION INTEGER SEMICOLON .
+
+    METHOD          reduce using rule 9 (Tipo_M -> INT ID ASIGNACION INTEGER SEMICOLON .)
+    INT             reduce using rule 9 (Tipo_M -> INT ID ASIGNACION INTEGER SEMICOLON .)
+    FLO             reduce using rule 9 (Tipo_M -> INT ID ASIGNACION INTEGER SEMICOLON .)
+    MAIN            reduce using rule 9 (Tipo_M -> INT ID ASIGNACION INTEGER SEMICOLON .)
+
+
+state 45
+
+    (11) Tipo_A -> INT Arreglo2 ID TAUXI LCORCHETE . INTEGER TTAUXI RCORCHETE LCORCHETE INTEGER TTTAUXI RCORCHETE SEMICOLON
+
+    INTEGER         shift and go to state 53
+
+
+state 46
+
+    (13) Tipo_A -> INT Arreglo1 ID TAUXI LCORCHETE . INTEGER TTAUXI RCORCHETE SEMICOLON
+
+    INTEGER         shift and go to state 54
+
+
+state 47
+
+    (10) Tipo_M -> FLO ID ASIGNACION FLOAT SEMICOLON .
+
+    METHOD          reduce using rule 10 (Tipo_M -> FLO ID ASIGNACION FLOAT SEMICOLON .)
+    INT             reduce using rule 10 (Tipo_M -> FLO ID ASIGNACION FLOAT SEMICOLON .)
+    FLO             reduce using rule 10 (Tipo_M -> FLO ID ASIGNACION FLOAT SEMICOLON .)
+    MAIN            reduce using rule 10 (Tipo_M -> FLO ID ASIGNACION FLOAT SEMICOLON .)
+
+
+state 48
+
+    (12) Tipo_A -> FLO Arreglo2 ID TAUXI LCORCHETE . INTEGER TTAUXI RCORCHETE LCORCHETE INTEGER TTTAUXI RCORCHETE SEMICOLON
+
+    INTEGER         shift and go to state 55
+
+
+state 49
+
+    (14) Tipo_A -> FLO Arreglo1 ID TAUXI LCORCHETE . INTEGER TTAUXI RCORCHETE SEMICOLON
+
+    INTEGER         shift and go to state 56
+
+
+state 50
+
+    (1) Programa -> START SAUXI PUNTOS V MethodsBlock SSAUXI MainBlock ENDSTART SEMICOLON SSSAUXI .
+
+    $end            reduce using rule 1 (Programa -> START SAUXI PUNTOS V MethodsBlock SSAUXI MainBlock ENDSTART SEMICOLON SSSAUXI .)
+
+
+state 51
+
+    (18) MainBlock -> MAIN LPAREN RPAREN PUNTOS . Statements ENDMAIN SEMICOLON
+    (23) Statements -> . ID ASIGNACION expression SEMICOLON Auxi Statements
+    (24) Statements -> . SVar ASIGNACION expression SEMICOLON AuxiV Statements
+    (25) Statements -> . FOR LPAREN ID ASIGNACION expression COMA FAUXI FFAUXI Comparison FFFAUXI RPAREN PUNTOS Statements FFFFAUXI ENDFOR SEMICOLON Statements
+    (26) Statements -> . WHILE WAUXI LPAREN Comparison WWAUXI RPAREN PUNTOS Statements WWWAUXI ENDWHILE SEMICOLON Statements
+    (27) Statements -> . IF LPAREN Comparison RPAREN IAUXI PUNTOS TRUE PUNTOS Statements ENDTRUE SEMICOLON FALSE PUNTOS IIAUXI Statements ENDFALSE SEMICOLON ENDIF SEMICOLON IIIAUXI Statements
+    (28) Statements -> . IF LPAREN Comparison RPAREN IAUXI PUNTOS TRUE PUNTOS Statements ENDTRUE SEMICOLON ENDIF SEMICOLON IIIAUXI Statements
+    (29) Statements -> . PRINTA LPAREN ID PAUXI RPAREN SEMICOLON Statements
+    (30) Statements -> . PRINTA LPAREN SVar PAUXIV RPAREN SEMICOLON Statements
+    (31) Statements -> . READ LPAREN ID RAUXI RPAREN SEMICOLON Statements
+    (32) Statements -> . READ LPAREN SVar RAUXIV RPAREN SEMICOLON Statements
+    (33) Statements -> . CALL LPAREN ID CAUXI RPAREN SEMICOLON Statements
+    (34) Statements -> . empty
+    (35) SVar -> . ID VAUXI LCORCHETE VVAUXI expression VVVAUXI RCORCHETE
+    (36) SVar -> . ID VAUXI LCORCHETE VVAUXI expression VVVAUXI RCORCHETE LCORCHETE expression VVVVAUXI RCORCHETE
+    (74) empty -> .
+
+    ID              shift and go to state 58
+    FOR             shift and go to state 60
+    WHILE           shift and go to state 61
+    IF              shift and go to state 62
+    PRINTA          shift and go to state 63
+    READ            shift and go to state 64
+    CALL            shift and go to state 65
+    ENDMAIN         reduce using rule 74 (empty -> .)
+
+    Statements                     shift and go to state 57
+    SVar                           shift and go to state 59
+    empty                          shift and go to state 66
+
+state 52
+
+    (19) MethodsBlock -> METHOD ID MAUXI LPAREN RPAREN PUNTOS . Statements ENDMETHOD SEMICOLON MMAUXI MethodsBlock
+    (23) Statements -> . ID ASIGNACION expression SEMICOLON Auxi Statements
+    (24) Statements -> . SVar ASIGNACION expression SEMICOLON AuxiV Statements
+    (25) Statements -> . FOR LPAREN ID ASIGNACION expression COMA FAUXI FFAUXI Comparison FFFAUXI RPAREN PUNTOS Statements FFFFAUXI ENDFOR SEMICOLON Statements
+    (26) Statements -> . WHILE WAUXI LPAREN Comparison WWAUXI RPAREN PUNTOS Statements WWWAUXI ENDWHILE SEMICOLON Statements
+    (27) Statements -> . IF LPAREN Comparison RPAREN IAUXI PUNTOS TRUE PUNTOS Statements ENDTRUE SEMICOLON FALSE PUNTOS IIAUXI Statements ENDFALSE SEMICOLON ENDIF SEMICOLON IIIAUXI Statements
+    (28) Statements -> . IF LPAREN Comparison RPAREN IAUXI PUNTOS TRUE PUNTOS Statements ENDTRUE SEMICOLON ENDIF SEMICOLON IIIAUXI Statements
+    (29) Statements -> . PRINTA LPAREN ID PAUXI RPAREN SEMICOLON Statements
+    (30) Statements -> . PRINTA LPAREN SVar PAUXIV RPAREN SEMICOLON Statements
+    (31) Statements -> . READ LPAREN ID RAUXI RPAREN SEMICOLON Statements
+    (32) Statements -> . READ LPAREN SVar RAUXIV RPAREN SEMICOLON Statements
+    (33) Statements -> . CALL LPAREN ID CAUXI RPAREN SEMICOLON Statements
+    (34) Statements -> . empty
+    (35) SVar -> . ID VAUXI LCORCHETE VVAUXI expression VVVAUXI RCORCHETE
+    (36) SVar -> . ID VAUXI LCORCHETE VVAUXI expression VVVAUXI RCORCHETE LCORCHETE expression VVVVAUXI RCORCHETE
+    (74) empty -> .
+
+    ID              shift and go to state 58
+    FOR             shift and go to state 60
+    WHILE           shift and go to state 61
+    IF              shift and go to state 62
+    PRINTA          shift and go to state 63
+    READ            shift and go to state 64
+    CALL            shift and go to state 65
+    ENDMETHOD       reduce using rule 74 (empty -> .)
+
+    Statements                     shift and go to state 67
+    SVar                           shift and go to state 59
+    empty                          shift and go to state 66
+
+state 53
+
+    (11) Tipo_A -> INT Arreglo2 ID TAUXI LCORCHETE INTEGER . TTAUXI RCORCHETE LCORCHETE INTEGER TTTAUXI RCORCHETE SEMICOLON
+    (16) TTAUXI -> .
+
+    RCORCHETE       reduce using rule 16 (TTAUXI -> .)
+
+    TTAUXI                         shift and go to state 68
+
+state 54
+
+    (13) Tipo_A -> INT Arreglo1 ID TAUXI LCORCHETE INTEGER . TTAUXI RCORCHETE SEMICOLON
+    (16) TTAUXI -> .
+
+    RCORCHETE       reduce using rule 16 (TTAUXI -> .)
+
+    TTAUXI                         shift and go to state 69
+
+state 55
+
+    (12) Tipo_A -> FLO Arreglo2 ID TAUXI LCORCHETE INTEGER . TTAUXI RCORCHETE LCORCHETE INTEGER TTTAUXI RCORCHETE SEMICOLON
+    (16) TTAUXI -> .
+
+    RCORCHETE       reduce using rule 16 (TTAUXI -> .)
+
+    TTAUXI                         shift and go to state 70
+
+state 56
+
+    (14) Tipo_A -> FLO Arreglo1 ID TAUXI LCORCHETE INTEGER . TTAUXI RCORCHETE SEMICOLON
+    (16) TTAUXI -> .
+
+    RCORCHETE       reduce using rule 16 (TTAUXI -> .)
+
+    TTAUXI                         shift and go to state 71
+
+state 57
+
+    (18) MainBlock -> MAIN LPAREN RPAREN PUNTOS Statements . ENDMAIN SEMICOLON
+
+    ENDMAIN         shift and go to state 72
+
+
+state 58
+
+    (23) Statements -> ID . ASIGNACION expression SEMICOLON Auxi Statements
+    (35) SVar -> ID . VAUXI LCORCHETE VVAUXI expression VVVAUXI RCORCHETE
+    (36) SVar -> ID . VAUXI LCORCHETE VVAUXI expression VVVAUXI RCORCHETE LCORCHETE expression VVVVAUXI RCORCHETE
+    (37) VAUXI -> .
+
+    ASIGNACION      shift and go to state 73
+    LCORCHETE       reduce using rule 37 (VAUXI -> .)
+
+    VAUXI                          shift and go to state 74
+
+state 59
+
+    (24) Statements -> SVar . ASIGNACION expression SEMICOLON AuxiV Statements
+
+    ASIGNACION      shift and go to state 75
+
+
+state 60
+
+    (25) Statements -> FOR . LPAREN ID ASIGNACION expression COMA FAUXI FFAUXI Comparison FFFAUXI RPAREN PUNTOS Statements FFFFAUXI ENDFOR SEMICOLON Statements
+
+    LPAREN          shift and go to state 76
+
+
+state 61
+
+    (26) Statements -> WHILE . WAUXI LPAREN Comparison WWAUXI RPAREN PUNTOS Statements WWWAUXI ENDWHILE SEMICOLON Statements
+    (50) WAUXI -> .
+
+    LPAREN          reduce using rule 50 (WAUXI -> .)
+
+    WAUXI                          shift and go to state 77
+
+state 62
+
+    (27) Statements -> IF . LPAREN Comparison RPAREN IAUXI PUNTOS TRUE PUNTOS Statements ENDTRUE SEMICOLON FALSE PUNTOS IIAUXI Statements ENDFALSE SEMICOLON ENDIF SEMICOLON IIIAUXI Statements
+    (28) Statements -> IF . LPAREN Comparison RPAREN IAUXI PUNTOS TRUE PUNTOS Statements ENDTRUE SEMICOLON ENDIF SEMICOLON IIIAUXI Statements
+
+    LPAREN          shift and go to state 78
+
+
+state 63
+
+    (29) Statements -> PRINTA . LPAREN ID PAUXI RPAREN SEMICOLON Statements
+    (30) Statements -> PRINTA . LPAREN SVar PAUXIV RPAREN SEMICOLON Statements
+
+    LPAREN          shift and go to state 79
+
+
+state 64
+
+    (31) Statements -> READ . LPAREN ID RAUXI RPAREN SEMICOLON Statements
+    (32) Statements -> READ . LPAREN SVar RAUXIV RPAREN SEMICOLON Statements
+
+    LPAREN          shift and go to state 80
+
+
+state 65
+
+    (33) Statements -> CALL . LPAREN ID CAUXI RPAREN SEMICOLON Statements
+
+    LPAREN          shift and go to state 81
+
+
+state 66
+
+    (34) Statements -> empty .
+
+    ENDMAIN         reduce using rule 34 (Statements -> empty .)
+    ENDMETHOD       reduce using rule 34 (Statements -> empty .)
+    ENDWHILE        reduce using rule 34 (Statements -> empty .)
+    ENDTRUE         reduce using rule 34 (Statements -> empty .)
+    ENDFOR          reduce using rule 34 (Statements -> empty .)
+    ENDFALSE        reduce using rule 34 (Statements -> empty .)
+
+
+state 67
+
+    (19) MethodsBlock -> METHOD ID MAUXI LPAREN RPAREN PUNTOS Statements . ENDMETHOD SEMICOLON MMAUXI MethodsBlock
+
+    ENDMETHOD       shift and go to state 82
+
+
+state 68
+
+    (11) Tipo_A -> INT Arreglo2 ID TAUXI LCORCHETE INTEGER TTAUXI . RCORCHETE LCORCHETE INTEGER TTTAUXI RCORCHETE SEMICOLON
+
+    RCORCHETE       shift and go to state 83
+
+
+state 69
+
+    (13) Tipo_A -> INT Arreglo1 ID TAUXI LCORCHETE INTEGER TTAUXI . RCORCHETE SEMICOLON
+
+    RCORCHETE       shift and go to state 84
+
+
+state 70
+
+    (12) Tipo_A -> FLO Arreglo2 ID TAUXI LCORCHETE INTEGER TTAUXI . RCORCHETE LCORCHETE INTEGER TTTAUXI RCORCHETE SEMICOLON
+
+    RCORCHETE       shift and go to state 85
+
+
+state 71
+
+    (14) Tipo_A -> FLO Arreglo1 ID TAUXI LCORCHETE INTEGER TTAUXI . RCORCHETE SEMICOLON
+
+    RCORCHETE       shift and go to state 86
+
+
+state 72
+
+    (18) MainBlock -> MAIN LPAREN RPAREN PUNTOS Statements ENDMAIN . SEMICOLON
+
+    SEMICOLON       shift and go to state 87
+
+
+state 73
+
+    (23) Statements -> ID ASIGNACION . expression SEMICOLON Auxi Statements
+    (61) expression -> . expression PLUS S
+    (62) expression -> . S
+    (63) S -> . S MINUS T
+    (64) S -> . T
+    (65) T -> . T TIMES F
+    (66) T -> . F
+    (67) F -> . F DIVIDE R
+    (68) F -> . R
+    (69) R -> . ID
+    (70) R -> . SVar
+    (71) R -> . INTEGER
+    (72) R -> . FLOAT
+    (73) R -> . LPAREN expression RPAREN
+    (35) SVar -> . ID VAUXI LCORCHETE VVAUXI expression VVVAUXI RCORCHETE
+    (36) SVar -> . ID VAUXI LCORCHETE VVAUXI expression VVVAUXI RCORCHETE LCORCHETE expression VVVVAUXI RCORCHETE
+
+    ID              shift and go to state 88
+    INTEGER         shift and go to state 95
+    FLOAT           shift and go to state 96
+    LPAREN          shift and go to state 97
+
+    expression                     shift and go to state 89
+    S                              shift and go to state 90
+    T                              shift and go to state 91
+    F                              shift and go to state 92
+    R                              shift and go to state 93
+    SVar                           shift and go to state 94
+
+state 74
+
+    (35) SVar -> ID VAUXI . LCORCHETE VVAUXI expression VVVAUXI RCORCHETE
+    (36) SVar -> ID VAUXI . LCORCHETE VVAUXI expression VVVAUXI RCORCHETE LCORCHETE expression VVVVAUXI RCORCHETE
+
+    LCORCHETE       shift and go to state 98
+
+
+state 75
+
+    (24) Statements -> SVar ASIGNACION . expression SEMICOLON AuxiV Statements
+    (61) expression -> . expression PLUS S
+    (62) expression -> . S
+    (63) S -> . S MINUS T
+    (64) S -> . T
+    (65) T -> . T TIMES F
+    (66) T -> . F
+    (67) F -> . F DIVIDE R
+    (68) F -> . R
+    (69) R -> . ID
+    (70) R -> . SVar
+    (71) R -> . INTEGER
+    (72) R -> . FLOAT
+    (73) R -> . LPAREN expression RPAREN
+    (35) SVar -> . ID VAUXI LCORCHETE VVAUXI expression VVVAUXI RCORCHETE
+    (36) SVar -> . ID VAUXI LCORCHETE VVAUXI expression VVVAUXI RCORCHETE LCORCHETE expression VVVVAUXI RCORCHETE
+
+    ID              shift and go to state 88
+    INTEGER         shift and go to state 95
+    FLOAT           shift and go to state 96
+    LPAREN          shift and go to state 97
+
+    SVar                           shift and go to state 94
+    expression                     shift and go to state 99
+    S                              shift and go to state 90
+    T                              shift and go to state 91
+    F                              shift and go to state 92
+    R                              shift and go to state 93
+
+state 76
+
+    (25) Statements -> FOR LPAREN . ID ASIGNACION expression COMA FAUXI FFAUXI Comparison FFFAUXI RPAREN PUNTOS Statements FFFFAUXI ENDFOR SEMICOLON Statements
+
+    ID              shift and go to state 100
+
+
+state 77
+
+    (26) Statements -> WHILE WAUXI . LPAREN Comparison WWAUXI RPAREN PUNTOS Statements WWWAUXI ENDWHILE SEMICOLON Statements
+
+    LPAREN          shift and go to state 101
+
+
+state 78
+
+    (27) Statements -> IF LPAREN . Comparison RPAREN IAUXI PUNTOS TRUE PUNTOS Statements ENDTRUE SEMICOLON FALSE PUNTOS IIAUXI Statements ENDFALSE SEMICOLON ENDIF SEMICOLON IIIAUXI Statements
+    (28) Statements -> IF LPAREN . Comparison RPAREN IAUXI PUNTOS TRUE PUNTOS Statements ENDTRUE SEMICOLON ENDIF SEMICOLON IIIAUXI Statements
+    (58) Comparison -> . ID IGUALDADCOM ID
+    (59) Comparison -> . ID MAYORCOM ID
+    (60) Comparison -> . ID MENORCOM ID
+
+    ID              shift and go to state 103
+
+    Comparison                     shift and go to state 102
+
+state 79
+
+    (29) Statements -> PRINTA LPAREN . ID PAUXI RPAREN SEMICOLON Statements
+    (30) Statements -> PRINTA LPAREN . SVar PAUXIV RPAREN SEMICOLON Statements
+    (35) SVar -> . ID VAUXI LCORCHETE VVAUXI expression VVVAUXI RCORCHETE
+    (36) SVar -> . ID VAUXI LCORCHETE VVAUXI expression VVVAUXI RCORCHETE LCORCHETE expression VVVVAUXI RCORCHETE
+
+    ID              shift and go to state 104
+
+    SVar                           shift and go to state 105
+
+state 80
+
+    (31) Statements -> READ LPAREN . ID RAUXI RPAREN SEMICOLON Statements
+    (32) Statements -> READ LPAREN . SVar RAUXIV RPAREN SEMICOLON Statements
+    (35) SVar -> . ID VAUXI LCORCHETE VVAUXI expression VVVAUXI RCORCHETE
+    (36) SVar -> . ID VAUXI LCORCHETE VVAUXI expression VVVAUXI RCORCHETE LCORCHETE expression VVVVAUXI RCORCHETE
+
+    ID              shift and go to state 106
+
+    SVar                           shift and go to state 107
+
+state 81
+
+    (33) Statements -> CALL LPAREN . ID CAUXI RPAREN SEMICOLON Statements
+
+    ID              shift and go to state 108
+
+
+state 82
+
+    (19) MethodsBlock -> METHOD ID MAUXI LPAREN RPAREN PUNTOS Statements ENDMETHOD . SEMICOLON MMAUXI MethodsBlock
+
+    SEMICOLON       shift and go to state 109
+
+
+state 83
+
+    (11) Tipo_A -> INT Arreglo2 ID TAUXI LCORCHETE INTEGER TTAUXI RCORCHETE . LCORCHETE INTEGER TTTAUXI RCORCHETE SEMICOLON
+
+    LCORCHETE       shift and go to state 110
+
+
+state 84
+
+    (13) Tipo_A -> INT Arreglo1 ID TAUXI LCORCHETE INTEGER TTAUXI RCORCHETE . SEMICOLON
+
+    SEMICOLON       shift and go to state 111
+
+
+state 85
+
+    (12) Tipo_A -> FLO Arreglo2 ID TAUXI LCORCHETE INTEGER TTAUXI RCORCHETE . LCORCHETE INTEGER TTTAUXI RCORCHETE SEMICOLON
+
+    LCORCHETE       shift and go to state 112
+
+
+state 86
+
+    (14) Tipo_A -> FLO Arreglo1 ID TAUXI LCORCHETE INTEGER TTAUXI RCORCHETE . SEMICOLON
+
+    SEMICOLON       shift and go to state 113
+
+
+state 87
+
+    (18) MainBlock -> MAIN LPAREN RPAREN PUNTOS Statements ENDMAIN SEMICOLON .
+
+    ENDSTART        reduce using rule 18 (MainBlock -> MAIN LPAREN RPAREN PUNTOS Statements ENDMAIN SEMICOLON .)
+
+
+state 88
+
+    (69) R -> ID .
+    (35) SVar -> ID . VAUXI LCORCHETE VVAUXI expression VVVAUXI RCORCHETE
+    (36) SVar -> ID . VAUXI LCORCHETE VVAUXI expression VVVAUXI RCORCHETE LCORCHETE expression VVVVAUXI RCORCHETE
+    (37) VAUXI -> .
+
+    DIVIDE          reduce using rule 69 (R -> ID .)
+    TIMES           reduce using rule 69 (R -> ID .)
+    MINUS           reduce using rule 69 (R -> ID .)
+    SEMICOLON       reduce using rule 69 (R -> ID .)
+    PLUS            reduce using rule 69 (R -> ID .)
+    RPAREN          reduce using rule 69 (R -> ID .)
+    RCORCHETE       reduce using rule 69 (R -> ID .)
+    COMA            reduce using rule 69 (R -> ID .)
+    LCORCHETE       reduce using rule 37 (VAUXI -> .)
+
+    VAUXI                          shift and go to state 74
+
+state 89
+
+    (23) Statements -> ID ASIGNACION expression . SEMICOLON Auxi Statements
+    (61) expression -> expression . PLUS S
+
+    SEMICOLON       shift and go to state 114
+    PLUS            shift and go to state 115
+
+
+state 90
+
+    (62) expression -> S .
+    (63) S -> S . MINUS T
+
+    SEMICOLON       reduce using rule 62 (expression -> S .)
+    PLUS            reduce using rule 62 (expression -> S .)
+    RPAREN          reduce using rule 62 (expression -> S .)
+    RCORCHETE       reduce using rule 62 (expression -> S .)
+    COMA            reduce using rule 62 (expression -> S .)
+    MINUS           shift and go to state 116
+
+
+state 91
+
+    (64) S -> T .
+    (65) T -> T . TIMES F
+
+    MINUS           reduce using rule 64 (S -> T .)
+    SEMICOLON       reduce using rule 64 (S -> T .)
+    PLUS            reduce using rule 64 (S -> T .)
+    RPAREN          reduce using rule 64 (S -> T .)
+    RCORCHETE       reduce using rule 64 (S -> T .)
+    COMA            reduce using rule 64 (S -> T .)
+    TIMES           shift and go to state 117
+
+
+state 92
+
+    (66) T -> F .
+    (67) F -> F . DIVIDE R
+
+    TIMES           reduce using rule 66 (T -> F .)
+    MINUS           reduce using rule 66 (T -> F .)
+    SEMICOLON       reduce using rule 66 (T -> F .)
+    PLUS            reduce using rule 66 (T -> F .)
+    RPAREN          reduce using rule 66 (T -> F .)
+    RCORCHETE       reduce using rule 66 (T -> F .)
+    COMA            reduce using rule 66 (T -> F .)
+    DIVIDE          shift and go to state 118
+
+
+state 93
+
+    (68) F -> R .
+
+    DIVIDE          reduce using rule 68 (F -> R .)
+    TIMES           reduce using rule 68 (F -> R .)
+    MINUS           reduce using rule 68 (F -> R .)
+    SEMICOLON       reduce using rule 68 (F -> R .)
+    PLUS            reduce using rule 68 (F -> R .)
+    RPAREN          reduce using rule 68 (F -> R .)
+    RCORCHETE       reduce using rule 68 (F -> R .)
+    COMA            reduce using rule 68 (F -> R .)
+
+
+state 94
+
+    (70) R -> SVar .
+
+    DIVIDE          reduce using rule 70 (R -> SVar .)
+    TIMES           reduce using rule 70 (R -> SVar .)
+    MINUS           reduce using rule 70 (R -> SVar .)
+    SEMICOLON       reduce using rule 70 (R -> SVar .)
+    PLUS            reduce using rule 70 (R -> SVar .)
+    RPAREN          reduce using rule 70 (R -> SVar .)
+    RCORCHETE       reduce using rule 70 (R -> SVar .)
+    COMA            reduce using rule 70 (R -> SVar .)
+
+
+state 95
+
+    (71) R -> INTEGER .
+
+    DIVIDE          reduce using rule 71 (R -> INTEGER .)
+    TIMES           reduce using rule 71 (R -> INTEGER .)
+    MINUS           reduce using rule 71 (R -> INTEGER .)
+    SEMICOLON       reduce using rule 71 (R -> INTEGER .)
+    PLUS            reduce using rule 71 (R -> INTEGER .)
+    RPAREN          reduce using rule 71 (R -> INTEGER .)
+    RCORCHETE       reduce using rule 71 (R -> INTEGER .)
+    COMA            reduce using rule 71 (R -> INTEGER .)
+
+
+state 96
+
+    (72) R -> FLOAT .
+
+    DIVIDE          reduce using rule 72 (R -> FLOAT .)
+    TIMES           reduce using rule 72 (R -> FLOAT .)
+    MINUS           reduce using rule 72 (R -> FLOAT .)
+    SEMICOLON       reduce using rule 72 (R -> FLOAT .)
+    PLUS            reduce using rule 72 (R -> FLOAT .)
+    RPAREN          reduce using rule 72 (R -> FLOAT .)
+    RCORCHETE       reduce using rule 72 (R -> FLOAT .)
+    COMA            reduce using rule 72 (R -> FLOAT .)
+
+
+state 97
+
+    (73) R -> LPAREN . expression RPAREN
+    (61) expression -> . expression PLUS S
+    (62) expression -> . S
+    (63) S -> . S MINUS T
+    (64) S -> . T
+    (65) T -> . T TIMES F
+    (66) T -> . F
+    (67) F -> . F DIVIDE R
+    (68) F -> . R
+    (69) R -> . ID
+    (70) R -> . SVar
+    (71) R -> . INTEGER
+    (72) R -> . FLOAT
+    (73) R -> . LPAREN expression RPAREN
+    (35) SVar -> . ID VAUXI LCORCHETE VVAUXI expression VVVAUXI RCORCHETE
+    (36) SVar -> . ID VAUXI LCORCHETE VVAUXI expression VVVAUXI RCORCHETE LCORCHETE expression VVVVAUXI RCORCHETE
+
+    ID              shift and go to state 88
+    INTEGER         shift and go to state 95
+    FLOAT           shift and go to state 96
+    LPAREN          shift and go to state 97
+
+    expression                     shift and go to state 119
+    S                              shift and go to state 90
+    T                              shift and go to state 91
+    F                              shift and go to state 92
+    R                              shift and go to state 93
+    SVar                           shift and go to state 94
+
+state 98
+
+    (35) SVar -> ID VAUXI LCORCHETE . VVAUXI expression VVVAUXI RCORCHETE
+    (36) SVar -> ID VAUXI LCORCHETE . VVAUXI expression VVVAUXI RCORCHETE LCORCHETE expression VVVVAUXI RCORCHETE
+    (38) VVAUXI -> .
+
+    ID              reduce using rule 38 (VVAUXI -> .)
+    INTEGER         reduce using rule 38 (VVAUXI -> .)
+    FLOAT           reduce using rule 38 (VVAUXI -> .)
+    LPAREN          reduce using rule 38 (VVAUXI -> .)
+
+    VVAUXI                         shift and go to state 120
+
+state 99
+
+    (24) Statements -> SVar ASIGNACION expression . SEMICOLON AuxiV Statements
+    (61) expression -> expression . PLUS S
+
+    SEMICOLON       shift and go to state 121
+    PLUS            shift and go to state 115
+
+
+state 100
+
+    (25) Statements -> FOR LPAREN ID . ASIGNACION expression COMA FAUXI FFAUXI Comparison FFFAUXI RPAREN PUNTOS Statements FFFFAUXI ENDFOR SEMICOLON Statements
+
+    ASIGNACION      shift and go to state 122
+
+
+state 101
+
+    (26) Statements -> WHILE WAUXI LPAREN . Comparison WWAUXI RPAREN PUNTOS Statements WWWAUXI ENDWHILE SEMICOLON Statements
+    (58) Comparison -> . ID IGUALDADCOM ID
+    (59) Comparison -> . ID MAYORCOM ID
+    (60) Comparison -> . ID MENORCOM ID
+
+    ID              shift and go to state 103
+
+    Comparison                     shift and go to state 123
+
+state 102
+
+    (27) Statements -> IF LPAREN Comparison . RPAREN IAUXI PUNTOS TRUE PUNTOS Statements ENDTRUE SEMICOLON FALSE PUNTOS IIAUXI Statements ENDFALSE SEMICOLON ENDIF SEMICOLON IIIAUXI Statements
+    (28) Statements -> IF LPAREN Comparison . RPAREN IAUXI PUNTOS TRUE PUNTOS Statements ENDTRUE SEMICOLON ENDIF SEMICOLON IIIAUXI Statements
+
+    RPAREN          shift and go to state 124
+
+
+state 103
+
+    (58) Comparison -> ID . IGUALDADCOM ID
+    (59) Comparison -> ID . MAYORCOM ID
+    (60) Comparison -> ID . MENORCOM ID
+
+    IGUALDADCOM     shift and go to state 125
+    MAYORCOM        shift and go to state 126
+    MENORCOM        shift and go to state 127
+
+
+state 104
+
+    (29) Statements -> PRINTA LPAREN ID . PAUXI RPAREN SEMICOLON Statements
+    (35) SVar -> ID . VAUXI LCORCHETE VVAUXI expression VVVAUXI RCORCHETE
+    (36) SVar -> ID . VAUXI LCORCHETE VVAUXI expression VVVAUXI RCORCHETE LCORCHETE expression VVVVAUXI RCORCHETE
+    (41) PAUXI -> .
+    (37) VAUXI -> .
+
+    RPAREN          reduce using rule 41 (PAUXI -> .)
+    LCORCHETE       reduce using rule 37 (VAUXI -> .)
+
+    PAUXI                          shift and go to state 128
+    VAUXI                          shift and go to state 74
+
+state 105
+
+    (30) Statements -> PRINTA LPAREN SVar . PAUXIV RPAREN SEMICOLON Statements
+    (42) PAUXIV -> .
+
+    RPAREN          reduce using rule 42 (PAUXIV -> .)
+
+    PAUXIV                         shift and go to state 129
+
+state 106
+
+    (31) Statements -> READ LPAREN ID . RAUXI RPAREN SEMICOLON Statements
+    (35) SVar -> ID . VAUXI LCORCHETE VVAUXI expression VVVAUXI RCORCHETE
+    (36) SVar -> ID . VAUXI LCORCHETE VVAUXI expression VVVAUXI RCORCHETE LCORCHETE expression VVVVAUXI RCORCHETE
+    (43) RAUXI -> .
+    (37) VAUXI -> .
+
+    RPAREN          reduce using rule 43 (RAUXI -> .)
+    LCORCHETE       reduce using rule 37 (VAUXI -> .)
+
+    RAUXI                          shift and go to state 130
+    VAUXI                          shift and go to state 74
+
+state 107
+
+    (32) Statements -> READ LPAREN SVar . RAUXIV RPAREN SEMICOLON Statements
+    (44) RAUXIV -> .
+
+    RPAREN          reduce using rule 44 (RAUXIV -> .)
+
+    RAUXIV                         shift and go to state 131
+
+state 108
+
+    (33) Statements -> CALL LPAREN ID . CAUXI RPAREN SEMICOLON Statements
+    (45) CAUXI -> .
+
+    RPAREN          reduce using rule 45 (CAUXI -> .)
+
+    CAUXI                          shift and go to state 132
+
+state 109
+
+    (19) MethodsBlock -> METHOD ID MAUXI LPAREN RPAREN PUNTOS Statements ENDMETHOD SEMICOLON . MMAUXI MethodsBlock
+    (22) MMAUXI -> .
+
+    METHOD          reduce using rule 22 (MMAUXI -> .)
+    MAIN            reduce using rule 22 (MMAUXI -> .)
+
+    MMAUXI                         shift and go to state 133
+
+state 110
+
+    (11) Tipo_A -> INT Arreglo2 ID TAUXI LCORCHETE INTEGER TTAUXI RCORCHETE LCORCHETE . INTEGER TTTAUXI RCORCHETE SEMICOLON
+
+    INTEGER         shift and go to state 134
+
+
+state 111
+
+    (13) Tipo_A -> INT Arreglo1 ID TAUXI LCORCHETE INTEGER TTAUXI RCORCHETE SEMICOLON .
+
+    METHOD          reduce using rule 13 (Tipo_A -> INT Arreglo1 ID TAUXI LCORCHETE INTEGER TTAUXI RCORCHETE SEMICOLON .)
+    INT             reduce using rule 13 (Tipo_A -> INT Arreglo1 ID TAUXI LCORCHETE INTEGER TTAUXI RCORCHETE SEMICOLON .)
+    FLO             reduce using rule 13 (Tipo_A -> INT Arreglo1 ID TAUXI LCORCHETE INTEGER TTAUXI RCORCHETE SEMICOLON .)
+    MAIN            reduce using rule 13 (Tipo_A -> INT Arreglo1 ID TAUXI LCORCHETE INTEGER TTAUXI RCORCHETE SEMICOLON .)
+
+
+state 112
+
+    (12) Tipo_A -> FLO Arreglo2 ID TAUXI LCORCHETE INTEGER TTAUXI RCORCHETE LCORCHETE . INTEGER TTTAUXI RCORCHETE SEMICOLON
+
+    INTEGER         shift and go to state 135
+
+
+state 113
+
+    (14) Tipo_A -> FLO Arreglo1 ID TAUXI LCORCHETE INTEGER TTAUXI RCORCHETE SEMICOLON .
+
+    METHOD          reduce using rule 14 (Tipo_A -> FLO Arreglo1 ID TAUXI LCORCHETE INTEGER TTAUXI RCORCHETE SEMICOLON .)
+    INT             reduce using rule 14 (Tipo_A -> FLO Arreglo1 ID TAUXI LCORCHETE INTEGER TTAUXI RCORCHETE SEMICOLON .)
+    FLO             reduce using rule 14 (Tipo_A -> FLO Arreglo1 ID TAUXI LCORCHETE INTEGER TTAUXI RCORCHETE SEMICOLON .)
+    MAIN            reduce using rule 14 (Tipo_A -> FLO Arreglo1 ID TAUXI LCORCHETE INTEGER TTAUXI RCORCHETE SEMICOLON .)
+
+
+state 114
+
+    (23) Statements -> ID ASIGNACION expression SEMICOLON . Auxi Statements
+    (56) Auxi -> .
+
+    ID              reduce using rule 56 (Auxi -> .)
+    FOR             reduce using rule 56 (Auxi -> .)
+    WHILE           reduce using rule 56 (Auxi -> .)
+    IF              reduce using rule 56 (Auxi -> .)
+    PRINTA          reduce using rule 56 (Auxi -> .)
+    READ            reduce using rule 56 (Auxi -> .)
+    CALL            reduce using rule 56 (Auxi -> .)
+    ENDMAIN         reduce using rule 56 (Auxi -> .)
+    ENDMETHOD       reduce using rule 56 (Auxi -> .)
+    ENDWHILE        reduce using rule 56 (Auxi -> .)
+    ENDTRUE         reduce using rule 56 (Auxi -> .)
+    ENDFOR          reduce using rule 56 (Auxi -> .)
+    ENDFALSE        reduce using rule 56 (Auxi -> .)
+
+    Auxi                           shift and go to state 136
+
+state 115
+
+    (61) expression -> expression PLUS . S
+    (63) S -> . S MINUS T
+    (64) S -> . T
+    (65) T -> . T TIMES F
+    (66) T -> . F
+    (67) F -> . F DIVIDE R
+    (68) F -> . R
+    (69) R -> . ID
+    (70) R -> . SVar
+    (71) R -> . INTEGER
+    (72) R -> . FLOAT
+    (73) R -> . LPAREN expression RPAREN
+    (35) SVar -> . ID VAUXI LCORCHETE VVAUXI expression VVVAUXI RCORCHETE
+    (36) SVar -> . ID VAUXI LCORCHETE VVAUXI expression VVVAUXI RCORCHETE LCORCHETE expression VVVVAUXI RCORCHETE
+
+    ID              shift and go to state 88
+    INTEGER         shift and go to state 95
+    FLOAT           shift and go to state 96
+    LPAREN          shift and go to state 97
+
+    S                              shift and go to state 137
+    T                              shift and go to state 91
+    F                              shift and go to state 92
+    R                              shift and go to state 93
+    SVar                           shift and go to state 94
+
+state 116
+
+    (63) S -> S MINUS . T
+    (65) T -> . T TIMES F
+    (66) T -> . F
+    (67) F -> . F DIVIDE R
+    (68) F -> . R
+    (69) R -> . ID
+    (70) R -> . SVar
+    (71) R -> . INTEGER
+    (72) R -> . FLOAT
+    (73) R -> . LPAREN expression RPAREN
+    (35) SVar -> . ID VAUXI LCORCHETE VVAUXI expression VVVAUXI RCORCHETE
+    (36) SVar -> . ID VAUXI LCORCHETE VVAUXI expression VVVAUXI RCORCHETE LCORCHETE expression VVVVAUXI RCORCHETE
+
+    ID              shift and go to state 88
+    INTEGER         shift and go to state 95
+    FLOAT           shift and go to state 96
+    LPAREN          shift and go to state 97
+
+    T                              shift and go to state 138
+    F                              shift and go to state 92
+    R                              shift and go to state 93
+    SVar                           shift and go to state 94
+
+state 117
+
+    (65) T -> T TIMES . F
+    (67) F -> . F DIVIDE R
+    (68) F -> . R
+    (69) R -> . ID
+    (70) R -> . SVar
+    (71) R -> . INTEGER
+    (72) R -> . FLOAT
+    (73) R -> . LPAREN expression RPAREN
+    (35) SVar -> . ID VAUXI LCORCHETE VVAUXI expression VVVAUXI RCORCHETE
+    (36) SVar -> . ID VAUXI LCORCHETE VVAUXI expression VVVAUXI RCORCHETE LCORCHETE expression VVVVAUXI RCORCHETE
+
+    ID              shift and go to state 88
+    INTEGER         shift and go to state 95
+    FLOAT           shift and go to state 96
+    LPAREN          shift and go to state 97
+
+    F                              shift and go to state 139
+    R                              shift and go to state 93
+    SVar                           shift and go to state 94
+
+state 118
+
+    (67) F -> F DIVIDE . R
+    (69) R -> . ID
+    (70) R -> . SVar
+    (71) R -> . INTEGER
+    (72) R -> . FLOAT
+    (73) R -> . LPAREN expression RPAREN
+    (35) SVar -> . ID VAUXI LCORCHETE VVAUXI expression VVVAUXI RCORCHETE
+    (36) SVar -> . ID VAUXI LCORCHETE VVAUXI expression VVVAUXI RCORCHETE LCORCHETE expression VVVVAUXI RCORCHETE
+
+    ID              shift and go to state 88
+    INTEGER         shift and go to state 95
+    FLOAT           shift and go to state 96
+    LPAREN          shift and go to state 97
+
+    R                              shift and go to state 140
+    SVar                           shift and go to state 94
+
+state 119
+
+    (73) R -> LPAREN expression . RPAREN
+    (61) expression -> expression . PLUS S
+
+    RPAREN          shift and go to state 141
+    PLUS            shift and go to state 115
+
+
+state 120
+
+    (35) SVar -> ID VAUXI LCORCHETE VVAUXI . expression VVVAUXI RCORCHETE
+    (36) SVar -> ID VAUXI LCORCHETE VVAUXI . expression VVVAUXI RCORCHETE LCORCHETE expression VVVVAUXI RCORCHETE
+    (61) expression -> . expression PLUS S
+    (62) expression -> . S
+    (63) S -> . S MINUS T
+    (64) S -> . T
+    (65) T -> . T TIMES F
+    (66) T -> . F
+    (67) F -> . F DIVIDE R
+    (68) F -> . R
+    (69) R -> . ID
+    (70) R -> . SVar
+    (71) R -> . INTEGER
+    (72) R -> . FLOAT
+    (73) R -> . LPAREN expression RPAREN
+    (35) SVar -> . ID VAUXI LCORCHETE VVAUXI expression VVVAUXI RCORCHETE
+    (36) SVar -> . ID VAUXI LCORCHETE VVAUXI expression VVVAUXI RCORCHETE LCORCHETE expression VVVVAUXI RCORCHETE
+
+    ID              shift and go to state 88
+    INTEGER         shift and go to state 95
+    FLOAT           shift and go to state 96
+    LPAREN          shift and go to state 97
+
+    expression                     shift and go to state 142
+    S                              shift and go to state 90
+    T                              shift and go to state 91
+    F                              shift and go to state 92
+    R                              shift and go to state 93
+    SVar                           shift and go to state 94
+
+state 121
+
+    (24) Statements -> SVar ASIGNACION expression SEMICOLON . AuxiV Statements
+    (57) AuxiV -> .
+
+    ID              reduce using rule 57 (AuxiV -> .)
+    FOR             reduce using rule 57 (AuxiV -> .)
+    WHILE           reduce using rule 57 (AuxiV -> .)
+    IF              reduce using rule 57 (AuxiV -> .)
+    PRINTA          reduce using rule 57 (AuxiV -> .)
+    READ            reduce using rule 57 (AuxiV -> .)
+    CALL            reduce using rule 57 (AuxiV -> .)
+    ENDMAIN         reduce using rule 57 (AuxiV -> .)
+    ENDMETHOD       reduce using rule 57 (AuxiV -> .)
+    ENDWHILE        reduce using rule 57 (AuxiV -> .)
+    ENDTRUE         reduce using rule 57 (AuxiV -> .)
+    ENDFOR          reduce using rule 57 (AuxiV -> .)
+    ENDFALSE        reduce using rule 57 (AuxiV -> .)
+
+    AuxiV                          shift and go to state 143
+
+state 122
+
+    (25) Statements -> FOR LPAREN ID ASIGNACION . expression COMA FAUXI FFAUXI Comparison FFFAUXI RPAREN PUNTOS Statements FFFFAUXI ENDFOR SEMICOLON Statements
+    (61) expression -> . expression PLUS S
+    (62) expression -> . S
+    (63) S -> . S MINUS T
+    (64) S -> . T
+    (65) T -> . T TIMES F
+    (66) T -> . F
+    (67) F -> . F DIVIDE R
+    (68) F -> . R
+    (69) R -> . ID
+    (70) R -> . SVar
+    (71) R -> . INTEGER
+    (72) R -> . FLOAT
+    (73) R -> . LPAREN expression RPAREN
+    (35) SVar -> . ID VAUXI LCORCHETE VVAUXI expression VVVAUXI RCORCHETE
+    (36) SVar -> . ID VAUXI LCORCHETE VVAUXI expression VVVAUXI RCORCHETE LCORCHETE expression VVVVAUXI RCORCHETE
+
+    ID              shift and go to state 88
+    INTEGER         shift and go to state 95
+    FLOAT           shift and go to state 96
+    LPAREN          shift and go to state 97
+
+    expression                     shift and go to state 144
+    S                              shift and go to state 90
+    T                              shift and go to state 91
+    F                              shift and go to state 92
+    R                              shift and go to state 93
+    SVar                           shift and go to state 94
+
+state 123
+
+    (26) Statements -> WHILE WAUXI LPAREN Comparison . WWAUXI RPAREN PUNTOS Statements WWWAUXI ENDWHILE SEMICOLON Statements
+    (51) WWAUXI -> .
+
+    RPAREN          reduce using rule 51 (WWAUXI -> .)
+
+    WWAUXI                         shift and go to state 145
+
+state 124
+
+    (27) Statements -> IF LPAREN Comparison RPAREN . IAUXI PUNTOS TRUE PUNTOS Statements ENDTRUE SEMICOLON FALSE PUNTOS IIAUXI Statements ENDFALSE SEMICOLON ENDIF SEMICOLON IIIAUXI Statements
+    (28) Statements -> IF LPAREN Comparison RPAREN . IAUXI PUNTOS TRUE PUNTOS Statements ENDTRUE SEMICOLON ENDIF SEMICOLON IIIAUXI Statements
+    (53) IAUXI -> .
+
+    PUNTOS          reduce using rule 53 (IAUXI -> .)
+
+    IAUXI                          shift and go to state 146
+
+state 125
+
+    (58) Comparison -> ID IGUALDADCOM . ID
+
+    ID              shift and go to state 147
+
+
+state 126
+
+    (59) Comparison -> ID MAYORCOM . ID
+
+    ID              shift and go to state 148
+
+
+state 127
+
+    (60) Comparison -> ID MENORCOM . ID
+
+    ID              shift and go to state 149
+
+
+state 128
+
+    (29) Statements -> PRINTA LPAREN ID PAUXI . RPAREN SEMICOLON Statements
+
+    RPAREN          shift and go to state 150
+
+
+state 129
+
+    (30) Statements -> PRINTA LPAREN SVar PAUXIV . RPAREN SEMICOLON Statements
+
+    RPAREN          shift and go to state 151
+
+
+state 130
+
+    (31) Statements -> READ LPAREN ID RAUXI . RPAREN SEMICOLON Statements
+
+    RPAREN          shift and go to state 152
+
+
+state 131
+
+    (32) Statements -> READ LPAREN SVar RAUXIV . RPAREN SEMICOLON Statements
+
+    RPAREN          shift and go to state 153
+
+
+state 132
+
+    (33) Statements -> CALL LPAREN ID CAUXI . RPAREN SEMICOLON Statements
+
+    RPAREN          shift and go to state 154
+
+
+state 133
+
+    (19) MethodsBlock -> METHOD ID MAUXI LPAREN RPAREN PUNTOS Statements ENDMETHOD SEMICOLON MMAUXI . MethodsBlock
+    (19) MethodsBlock -> . METHOD ID MAUXI LPAREN RPAREN PUNTOS Statements ENDMETHOD SEMICOLON MMAUXI MethodsBlock
+    (20) MethodsBlock -> . empty
+    (74) empty -> .
+
+    METHOD          shift and go to state 11
+    MAIN            reduce using rule 74 (empty -> .)
+
+    MethodsBlock                   shift and go to state 155
+    empty                          shift and go to state 12
+
+state 134
+
+    (11) Tipo_A -> INT Arreglo2 ID TAUXI LCORCHETE INTEGER TTAUXI RCORCHETE LCORCHETE INTEGER . TTTAUXI RCORCHETE SEMICOLON
+    (17) TTTAUXI -> .
+
+    RCORCHETE       reduce using rule 17 (TTTAUXI -> .)
+
+    TTTAUXI                        shift and go to state 156
+
+state 135
+
+    (12) Tipo_A -> FLO Arreglo2 ID TAUXI LCORCHETE INTEGER TTAUXI RCORCHETE LCORCHETE INTEGER . TTTAUXI RCORCHETE SEMICOLON
+    (17) TTTAUXI -> .
+
+    RCORCHETE       reduce using rule 17 (TTTAUXI -> .)
+
+    TTTAUXI                        shift and go to state 157
+
+state 136
+
+    (23) Statements -> ID ASIGNACION expression SEMICOLON Auxi . Statements
+    (23) Statements -> . ID ASIGNACION expression SEMICOLON Auxi Statements
+    (24) Statements -> . SVar ASIGNACION expression SEMICOLON AuxiV Statements
+    (25) Statements -> . FOR LPAREN ID ASIGNACION expression COMA FAUXI FFAUXI Comparison FFFAUXI RPAREN PUNTOS Statements FFFFAUXI ENDFOR SEMICOLON Statements
+    (26) Statements -> . WHILE WAUXI LPAREN Comparison WWAUXI RPAREN PUNTOS Statements WWWAUXI ENDWHILE SEMICOLON Statements
+    (27) Statements -> . IF LPAREN Comparison RPAREN IAUXI PUNTOS TRUE PUNTOS Statements ENDTRUE SEMICOLON FALSE PUNTOS IIAUXI Statements ENDFALSE SEMICOLON ENDIF SEMICOLON IIIAUXI Statements
+    (28) Statements -> . IF LPAREN Comparison RPAREN IAUXI PUNTOS TRUE PUNTOS Statements ENDTRUE SEMICOLON ENDIF SEMICOLON IIIAUXI Statements
+    (29) Statements -> . PRINTA LPAREN ID PAUXI RPAREN SEMICOLON Statements
+    (30) Statements -> . PRINTA LPAREN SVar PAUXIV RPAREN SEMICOLON Statements
+    (31) Statements -> . READ LPAREN ID RAUXI RPAREN SEMICOLON Statements
+    (32) Statements -> . READ LPAREN SVar RAUXIV RPAREN SEMICOLON Statements
+    (33) Statements -> . CALL LPAREN ID CAUXI RPAREN SEMICOLON Statements
+    (34) Statements -> . empty
+    (35) SVar -> . ID VAUXI LCORCHETE VVAUXI expression VVVAUXI RCORCHETE
+    (36) SVar -> . ID VAUXI LCORCHETE VVAUXI expression VVVAUXI RCORCHETE LCORCHETE expression VVVVAUXI RCORCHETE
+    (74) empty -> .
+
+    ID              shift and go to state 58
+    FOR             shift and go to state 60
+    WHILE           shift and go to state 61
+    IF              shift and go to state 62
+    PRINTA          shift and go to state 63
+    READ            shift and go to state 64
+    CALL            shift and go to state 65
+    ENDMAIN         reduce using rule 74 (empty -> .)
+    ENDMETHOD       reduce using rule 74 (empty -> .)
+    ENDWHILE        reduce using rule 74 (empty -> .)
+    ENDTRUE         reduce using rule 74 (empty -> .)
+    ENDFOR          reduce using rule 74 (empty -> .)
+    ENDFALSE        reduce using rule 74 (empty -> .)
+
+    Statements                     shift and go to state 158
+    SVar                           shift and go to state 59
+    empty                          shift and go to state 66
+
+state 137
+
+    (61) expression -> expression PLUS S .
+    (63) S -> S . MINUS T
+
+    SEMICOLON       reduce using rule 61 (expression -> expression PLUS S .)
+    PLUS            reduce using rule 61 (expression -> expression PLUS S .)
+    RPAREN          reduce using rule 61 (expression -> expression PLUS S .)
+    RCORCHETE       reduce using rule 61 (expression -> expression PLUS S .)
+    COMA            reduce using rule 61 (expression -> expression PLUS S .)
+    MINUS           shift and go to state 116
+
+
+state 138
+
+    (63) S -> S MINUS T .
+    (65) T -> T . TIMES F
+
+    MINUS           reduce using rule 63 (S -> S MINUS T .)
+    SEMICOLON       reduce using rule 63 (S -> S MINUS T .)
+    PLUS            reduce using rule 63 (S -> S MINUS T .)
+    RPAREN          reduce using rule 63 (S -> S MINUS T .)
+    RCORCHETE       reduce using rule 63 (S -> S MINUS T .)
+    COMA            reduce using rule 63 (S -> S MINUS T .)
+    TIMES           shift and go to state 117
+
+
+state 139
+
+    (65) T -> T TIMES F .
+    (67) F -> F . DIVIDE R
+
+    TIMES           reduce using rule 65 (T -> T TIMES F .)
+    MINUS           reduce using rule 65 (T -> T TIMES F .)
+    SEMICOLON       reduce using rule 65 (T -> T TIMES F .)
+    PLUS            reduce using rule 65 (T -> T TIMES F .)
+    RPAREN          reduce using rule 65 (T -> T TIMES F .)
+    RCORCHETE       reduce using rule 65 (T -> T TIMES F .)
+    COMA            reduce using rule 65 (T -> T TIMES F .)
+    DIVIDE          shift and go to state 118
+
+
+state 140
+
+    (67) F -> F DIVIDE R .
+
+    DIVIDE          reduce using rule 67 (F -> F DIVIDE R .)
+    TIMES           reduce using rule 67 (F -> F DIVIDE R .)
+    MINUS           reduce using rule 67 (F -> F DIVIDE R .)
+    SEMICOLON       reduce using rule 67 (F -> F DIVIDE R .)
+    PLUS            reduce using rule 67 (F -> F DIVIDE R .)
+    RPAREN          reduce using rule 67 (F -> F DIVIDE R .)
+    RCORCHETE       reduce using rule 67 (F -> F DIVIDE R .)
+    COMA            reduce using rule 67 (F -> F DIVIDE R .)
+
+
+state 141
+
+    (73) R -> LPAREN expression RPAREN .
+
+    DIVIDE          reduce using rule 73 (R -> LPAREN expression RPAREN .)
+    TIMES           reduce using rule 73 (R -> LPAREN expression RPAREN .)
+    MINUS           reduce using rule 73 (R -> LPAREN expression RPAREN .)
+    SEMICOLON       reduce using rule 73 (R -> LPAREN expression RPAREN .)
+    PLUS            reduce using rule 73 (R -> LPAREN expression RPAREN .)
+    RPAREN          reduce using rule 73 (R -> LPAREN expression RPAREN .)
+    RCORCHETE       reduce using rule 73 (R -> LPAREN expression RPAREN .)
+    COMA            reduce using rule 73 (R -> LPAREN expression RPAREN .)
+
+
+state 142
+
+    (35) SVar -> ID VAUXI LCORCHETE VVAUXI expression . VVVAUXI RCORCHETE
+    (36) SVar -> ID VAUXI LCORCHETE VVAUXI expression . VVVAUXI RCORCHETE LCORCHETE expression VVVVAUXI RCORCHETE
+    (61) expression -> expression . PLUS S
+    (39) VVVAUXI -> .
+
+    PLUS            shift and go to state 115
+    RCORCHETE       reduce using rule 39 (VVVAUXI -> .)
+
+    VVVAUXI                        shift and go to state 159
+
+state 143
+
+    (24) Statements -> SVar ASIGNACION expression SEMICOLON AuxiV . Statements
+    (23) Statements -> . ID ASIGNACION expression SEMICOLON Auxi Statements
+    (24) Statements -> . SVar ASIGNACION expression SEMICOLON AuxiV Statements
+    (25) Statements -> . FOR LPAREN ID ASIGNACION expression COMA FAUXI FFAUXI Comparison FFFAUXI RPAREN PUNTOS Statements FFFFAUXI ENDFOR SEMICOLON Statements
+    (26) Statements -> . WHILE WAUXI LPAREN Comparison WWAUXI RPAREN PUNTOS Statements WWWAUXI ENDWHILE SEMICOLON Statements
+    (27) Statements -> . IF LPAREN Comparison RPAREN IAUXI PUNTOS TRUE PUNTOS Statements ENDTRUE SEMICOLON FALSE PUNTOS IIAUXI Statements ENDFALSE SEMICOLON ENDIF SEMICOLON IIIAUXI Statements
+    (28) Statements -> . IF LPAREN Comparison RPAREN IAUXI PUNTOS TRUE PUNTOS Statements ENDTRUE SEMICOLON ENDIF SEMICOLON IIIAUXI Statements
+    (29) Statements -> . PRINTA LPAREN ID PAUXI RPAREN SEMICOLON Statements
+    (30) Statements -> . PRINTA LPAREN SVar PAUXIV RPAREN SEMICOLON Statements
+    (31) Statements -> . READ LPAREN ID RAUXI RPAREN SEMICOLON Statements
+    (32) Statements -> . READ LPAREN SVar RAUXIV RPAREN SEMICOLON Statements
+    (33) Statements -> . CALL LPAREN ID CAUXI RPAREN SEMICOLON Statements
+    (34) Statements -> . empty
+    (35) SVar -> . ID VAUXI LCORCHETE VVAUXI expression VVVAUXI RCORCHETE
+    (36) SVar -> . ID VAUXI LCORCHETE VVAUXI expression VVVAUXI RCORCHETE LCORCHETE expression VVVVAUXI RCORCHETE
+    (74) empty -> .
+
+    ID              shift and go to state 58
+    FOR             shift and go to state 60
+    WHILE           shift and go to state 61
+    IF              shift and go to state 62
+    PRINTA          shift and go to state 63
+    READ            shift and go to state 64
+    CALL            shift and go to state 65
+    ENDMAIN         reduce using rule 74 (empty -> .)
+    ENDMETHOD       reduce using rule 74 (empty -> .)
+    ENDWHILE        reduce using rule 74 (empty -> .)
+    ENDTRUE         reduce using rule 74 (empty -> .)
+    ENDFOR          reduce using rule 74 (empty -> .)
+    ENDFALSE        reduce using rule 74 (empty -> .)
+
+    SVar                           shift and go to state 59
+    Statements                     shift and go to state 160
+    empty                          shift and go to state 66
+
+state 144
+
+    (25) Statements -> FOR LPAREN ID ASIGNACION expression . COMA FAUXI FFAUXI Comparison FFFAUXI RPAREN PUNTOS Statements FFFFAUXI ENDFOR SEMICOLON Statements
+    (61) expression -> expression . PLUS S
+
+    COMA            shift and go to state 161
+    PLUS            shift and go to state 115
+
+
+state 145
+
+    (26) Statements -> WHILE WAUXI LPAREN Comparison WWAUXI . RPAREN PUNTOS Statements WWWAUXI ENDWHILE SEMICOLON Statements
+
+    RPAREN          shift and go to state 162
+
+
+state 146
+
+    (27) Statements -> IF LPAREN Comparison RPAREN IAUXI . PUNTOS TRUE PUNTOS Statements ENDTRUE SEMICOLON FALSE PUNTOS IIAUXI Statements ENDFALSE SEMICOLON ENDIF SEMICOLON IIIAUXI Statements
+    (28) Statements -> IF LPAREN Comparison RPAREN IAUXI . PUNTOS TRUE PUNTOS Statements ENDTRUE SEMICOLON ENDIF SEMICOLON IIIAUXI Statements
+
+    PUNTOS          shift and go to state 163
+
+
+state 147
+
+    (58) Comparison -> ID IGUALDADCOM ID .
+
+    RPAREN          reduce using rule 58 (Comparison -> ID IGUALDADCOM ID .)
+
+
+state 148
+
+    (59) Comparison -> ID MAYORCOM ID .
+
+    RPAREN          reduce using rule 59 (Comparison -> ID MAYORCOM ID .)
+
+
+state 149
+
+    (60) Comparison -> ID MENORCOM ID .
+
+    RPAREN          reduce using rule 60 (Comparison -> ID MENORCOM ID .)
+
+
+state 150
+
+    (29) Statements -> PRINTA LPAREN ID PAUXI RPAREN . SEMICOLON Statements
+
+    SEMICOLON       shift and go to state 164
+
+
+state 151
+
+    (30) Statements -> PRINTA LPAREN SVar PAUXIV RPAREN . SEMICOLON Statements
+
+    SEMICOLON       shift and go to state 165
+
+
+state 152
+
+    (31) Statements -> READ LPAREN ID RAUXI RPAREN . SEMICOLON Statements
+
+    SEMICOLON       shift and go to state 166
+
+
+state 153
+
+    (32) Statements -> READ LPAREN SVar RAUXIV RPAREN . SEMICOLON Statements
+
+    SEMICOLON       shift and go to state 167
+
+
+state 154
+
+    (33) Statements -> CALL LPAREN ID CAUXI RPAREN . SEMICOLON Statements
+
+    SEMICOLON       shift and go to state 168
+
+
+state 155
+
+    (19) MethodsBlock -> METHOD ID MAUXI LPAREN RPAREN PUNTOS Statements ENDMETHOD SEMICOLON MMAUXI MethodsBlock .
+
+    MAIN            reduce using rule 19 (MethodsBlock -> METHOD ID MAUXI LPAREN RPAREN PUNTOS Statements ENDMETHOD SEMICOLON MMAUXI MethodsBlock .)
+
+
+state 156
+
+    (11) Tipo_A -> INT Arreglo2 ID TAUXI LCORCHETE INTEGER TTAUXI RCORCHETE LCORCHETE INTEGER TTTAUXI . RCORCHETE SEMICOLON
+
+    RCORCHETE       shift and go to state 169
+
+
+state 157
+
+    (12) Tipo_A -> FLO Arreglo2 ID TAUXI LCORCHETE INTEGER TTAUXI RCORCHETE LCORCHETE INTEGER TTTAUXI . RCORCHETE SEMICOLON
+
+    RCORCHETE       shift and go to state 170
+
+
+state 158
+
+    (23) Statements -> ID ASIGNACION expression SEMICOLON Auxi Statements .
+
+    ENDMAIN         reduce using rule 23 (Statements -> ID ASIGNACION expression SEMICOLON Auxi Statements .)
+    ENDMETHOD       reduce using rule 23 (Statements -> ID ASIGNACION expression SEMICOLON Auxi Statements .)
+    ENDWHILE        reduce using rule 23 (Statements -> ID ASIGNACION expression SEMICOLON Auxi Statements .)
+    ENDTRUE         reduce using rule 23 (Statements -> ID ASIGNACION expression SEMICOLON Auxi Statements .)
+    ENDFOR          reduce using rule 23 (Statements -> ID ASIGNACION expression SEMICOLON Auxi Statements .)
+    ENDFALSE        reduce using rule 23 (Statements -> ID ASIGNACION expression SEMICOLON Auxi Statements .)
+
+
+state 159
+
+    (35) SVar -> ID VAUXI LCORCHETE VVAUXI expression VVVAUXI . RCORCHETE
+    (36) SVar -> ID VAUXI LCORCHETE VVAUXI expression VVVAUXI . RCORCHETE LCORCHETE expression VVVVAUXI RCORCHETE
+
+    RCORCHETE       shift and go to state 171
+
+
+state 160
+
+    (24) Statements -> SVar ASIGNACION expression SEMICOLON AuxiV Statements .
+
+    ENDMAIN         reduce using rule 24 (Statements -> SVar ASIGNACION expression SEMICOLON AuxiV Statements .)
+    ENDMETHOD       reduce using rule 24 (Statements -> SVar ASIGNACION expression SEMICOLON AuxiV Statements .)
+    ENDWHILE        reduce using rule 24 (Statements -> SVar ASIGNACION expression SEMICOLON AuxiV Statements .)
+    ENDTRUE         reduce using rule 24 (Statements -> SVar ASIGNACION expression SEMICOLON AuxiV Statements .)
+    ENDFOR          reduce using rule 24 (Statements -> SVar ASIGNACION expression SEMICOLON AuxiV Statements .)
+    ENDFALSE        reduce using rule 24 (Statements -> SVar ASIGNACION expression SEMICOLON AuxiV Statements .)
+
+
+state 161
+
+    (25) Statements -> FOR LPAREN ID ASIGNACION expression COMA . FAUXI FFAUXI Comparison FFFAUXI RPAREN PUNTOS Statements FFFFAUXI ENDFOR SEMICOLON Statements
+    (46) FAUXI -> .
+
+    ID              reduce using rule 46 (FAUXI -> .)
+
+    FAUXI                          shift and go to state 172
+
+state 162
+
+    (26) Statements -> WHILE WAUXI LPAREN Comparison WWAUXI RPAREN . PUNTOS Statements WWWAUXI ENDWHILE SEMICOLON Statements
+
+    PUNTOS          shift and go to state 173
+
+
+state 163
+
+    (27) Statements -> IF LPAREN Comparison RPAREN IAUXI PUNTOS . TRUE PUNTOS Statements ENDTRUE SEMICOLON FALSE PUNTOS IIAUXI Statements ENDFALSE SEMICOLON ENDIF SEMICOLON IIIAUXI Statements
+    (28) Statements -> IF LPAREN Comparison RPAREN IAUXI PUNTOS . TRUE PUNTOS Statements ENDTRUE SEMICOLON ENDIF SEMICOLON IIIAUXI Statements
+
+    TRUE            shift and go to state 174
+
+
+state 164
+
+    (29) Statements -> PRINTA LPAREN ID PAUXI RPAREN SEMICOLON . Statements
+    (23) Statements -> . ID ASIGNACION expression SEMICOLON Auxi Statements
+    (24) Statements -> . SVar ASIGNACION expression SEMICOLON AuxiV Statements
+    (25) Statements -> . FOR LPAREN ID ASIGNACION expression COMA FAUXI FFAUXI Comparison FFFAUXI RPAREN PUNTOS Statements FFFFAUXI ENDFOR SEMICOLON Statements
+    (26) Statements -> . WHILE WAUXI LPAREN Comparison WWAUXI RPAREN PUNTOS Statements WWWAUXI ENDWHILE SEMICOLON Statements
+    (27) Statements -> . IF LPAREN Comparison RPAREN IAUXI PUNTOS TRUE PUNTOS Statements ENDTRUE SEMICOLON FALSE PUNTOS IIAUXI Statements ENDFALSE SEMICOLON ENDIF SEMICOLON IIIAUXI Statements
+    (28) Statements -> . IF LPAREN Comparison RPAREN IAUXI PUNTOS TRUE PUNTOS Statements ENDTRUE SEMICOLON ENDIF SEMICOLON IIIAUXI Statements
+    (29) Statements -> . PRINTA LPAREN ID PAUXI RPAREN SEMICOLON Statements
+    (30) Statements -> . PRINTA LPAREN SVar PAUXIV RPAREN SEMICOLON Statements
+    (31) Statements -> . READ LPAREN ID RAUXI RPAREN SEMICOLON Statements
+    (32) Statements -> . READ LPAREN SVar RAUXIV RPAREN SEMICOLON Statements
+    (33) Statements -> . CALL LPAREN ID CAUXI RPAREN SEMICOLON Statements
+    (34) Statements -> . empty
+    (35) SVar -> . ID VAUXI LCORCHETE VVAUXI expression VVVAUXI RCORCHETE
+    (36) SVar -> . ID VAUXI LCORCHETE VVAUXI expression VVVAUXI RCORCHETE LCORCHETE expression VVVVAUXI RCORCHETE
+    (74) empty -> .
+
+    ID              shift and go to state 58
+    FOR             shift and go to state 60
+    WHILE           shift and go to state 61
+    IF              shift and go to state 62
+    PRINTA          shift and go to state 63
+    READ            shift and go to state 64
+    CALL            shift and go to state 65
+    ENDMAIN         reduce using rule 74 (empty -> .)
+    ENDMETHOD       reduce using rule 74 (empty -> .)
+    ENDWHILE        reduce using rule 74 (empty -> .)
+    ENDTRUE         reduce using rule 74 (empty -> .)
+    ENDFOR          reduce using rule 74 (empty -> .)
+    ENDFALSE        reduce using rule 74 (empty -> .)
+
+    Statements                     shift and go to state 175
+    SVar                           shift and go to state 59
+    empty                          shift and go to state 66
+
+state 165
+
+    (30) Statements -> PRINTA LPAREN SVar PAUXIV RPAREN SEMICOLON . Statements
+    (23) Statements -> . ID ASIGNACION expression SEMICOLON Auxi Statements
+    (24) Statements -> . SVar ASIGNACION expression SEMICOLON AuxiV Statements
+    (25) Statements -> . FOR LPAREN ID ASIGNACION expression COMA FAUXI FFAUXI Comparison FFFAUXI RPAREN PUNTOS Statements FFFFAUXI ENDFOR SEMICOLON Statements
+    (26) Statements -> . WHILE WAUXI LPAREN Comparison WWAUXI RPAREN PUNTOS Statements WWWAUXI ENDWHILE SEMICOLON Statements
+    (27) Statements -> . IF LPAREN Comparison RPAREN IAUXI PUNTOS TRUE PUNTOS Statements ENDTRUE SEMICOLON FALSE PUNTOS IIAUXI Statements ENDFALSE SEMICOLON ENDIF SEMICOLON IIIAUXI Statements
+    (28) Statements -> . IF LPAREN Comparison RPAREN IAUXI PUNTOS TRUE PUNTOS Statements ENDTRUE SEMICOLON ENDIF SEMICOLON IIIAUXI Statements
+    (29) Statements -> . PRINTA LPAREN ID PAUXI RPAREN SEMICOLON Statements
+    (30) Statements -> . PRINTA LPAREN SVar PAUXIV RPAREN SEMICOLON Statements
+    (31) Statements -> . READ LPAREN ID RAUXI RPAREN SEMICOLON Statements
+    (32) Statements -> . READ LPAREN SVar RAUXIV RPAREN SEMICOLON Statements
+    (33) Statements -> . CALL LPAREN ID CAUXI RPAREN SEMICOLON Statements
+    (34) Statements -> . empty
+    (35) SVar -> . ID VAUXI LCORCHETE VVAUXI expression VVVAUXI RCORCHETE
+    (36) SVar -> . ID VAUXI LCORCHETE VVAUXI expression VVVAUXI RCORCHETE LCORCHETE expression VVVVAUXI RCORCHETE
+    (74) empty -> .
+
+    ID              shift and go to state 58
+    FOR             shift and go to state 60
+    WHILE           shift and go to state 61
+    IF              shift and go to state 62
+    PRINTA          shift and go to state 63
+    READ            shift and go to state 64
+    CALL            shift and go to state 65
+    ENDMAIN         reduce using rule 74 (empty -> .)
+    ENDMETHOD       reduce using rule 74 (empty -> .)
+    ENDWHILE        reduce using rule 74 (empty -> .)
+    ENDTRUE         reduce using rule 74 (empty -> .)
+    ENDFOR          reduce using rule 74 (empty -> .)
+    ENDFALSE        reduce using rule 74 (empty -> .)
+
+    SVar                           shift and go to state 59
+    Statements                     shift and go to state 176
+    empty                          shift and go to state 66
+
+state 166
+
+    (31) Statements -> READ LPAREN ID RAUXI RPAREN SEMICOLON . Statements
+    (23) Statements -> . ID ASIGNACION expression SEMICOLON Auxi Statements
+    (24) Statements -> . SVar ASIGNACION expression SEMICOLON AuxiV Statements
+    (25) Statements -> . FOR LPAREN ID ASIGNACION expression COMA FAUXI FFAUXI Comparison FFFAUXI RPAREN PUNTOS Statements FFFFAUXI ENDFOR SEMICOLON Statements
+    (26) Statements -> . WHILE WAUXI LPAREN Comparison WWAUXI RPAREN PUNTOS Statements WWWAUXI ENDWHILE SEMICOLON Statements
+    (27) Statements -> . IF LPAREN Comparison RPAREN IAUXI PUNTOS TRUE PUNTOS Statements ENDTRUE SEMICOLON FALSE PUNTOS IIAUXI Statements ENDFALSE SEMICOLON ENDIF SEMICOLON IIIAUXI Statements
+    (28) Statements -> . IF LPAREN Comparison RPAREN IAUXI PUNTOS TRUE PUNTOS Statements ENDTRUE SEMICOLON ENDIF SEMICOLON IIIAUXI Statements
+    (29) Statements -> . PRINTA LPAREN ID PAUXI RPAREN SEMICOLON Statements
+    (30) Statements -> . PRINTA LPAREN SVar PAUXIV RPAREN SEMICOLON Statements
+    (31) Statements -> . READ LPAREN ID RAUXI RPAREN SEMICOLON Statements
+    (32) Statements -> . READ LPAREN SVar RAUXIV RPAREN SEMICOLON Statements
+    (33) Statements -> . CALL LPAREN ID CAUXI RPAREN SEMICOLON Statements
+    (34) Statements -> . empty
+    (35) SVar -> . ID VAUXI LCORCHETE VVAUXI expression VVVAUXI RCORCHETE
+    (36) SVar -> . ID VAUXI LCORCHETE VVAUXI expression VVVAUXI RCORCHETE LCORCHETE expression VVVVAUXI RCORCHETE
+    (74) empty -> .
+
+    ID              shift and go to state 58
+    FOR             shift and go to state 60
+    WHILE           shift and go to state 61
+    IF              shift and go to state 62
+    PRINTA          shift and go to state 63
+    READ            shift and go to state 64
+    CALL            shift and go to state 65
+    ENDMAIN         reduce using rule 74 (empty -> .)
+    ENDMETHOD       reduce using rule 74 (empty -> .)
+    ENDWHILE        reduce using rule 74 (empty -> .)
+    ENDTRUE         reduce using rule 74 (empty -> .)
+    ENDFOR          reduce using rule 74 (empty -> .)
+    ENDFALSE        reduce using rule 74 (empty -> .)
+
+    Statements                     shift and go to state 177
+    SVar                           shift and go to state 59
+    empty                          shift and go to state 66
+
+state 167
+
+    (32) Statements -> READ LPAREN SVar RAUXIV RPAREN SEMICOLON . Statements
+    (23) Statements -> . ID ASIGNACION expression SEMICOLON Auxi Statements
+    (24) Statements -> . SVar ASIGNACION expression SEMICOLON AuxiV Statements
+    (25) Statements -> . FOR LPAREN ID ASIGNACION expression COMA FAUXI FFAUXI Comparison FFFAUXI RPAREN PUNTOS Statements FFFFAUXI ENDFOR SEMICOLON Statements
+    (26) Statements -> . WHILE WAUXI LPAREN Comparison WWAUXI RPAREN PUNTOS Statements WWWAUXI ENDWHILE SEMICOLON Statements
+    (27) Statements -> . IF LPAREN Comparison RPAREN IAUXI PUNTOS TRUE PUNTOS Statements ENDTRUE SEMICOLON FALSE PUNTOS IIAUXI Statements ENDFALSE SEMICOLON ENDIF SEMICOLON IIIAUXI Statements
+    (28) Statements -> . IF LPAREN Comparison RPAREN IAUXI PUNTOS TRUE PUNTOS Statements ENDTRUE SEMICOLON ENDIF SEMICOLON IIIAUXI Statements
+    (29) Statements -> . PRINTA LPAREN ID PAUXI RPAREN SEMICOLON Statements
+    (30) Statements -> . PRINTA LPAREN SVar PAUXIV RPAREN SEMICOLON Statements
+    (31) Statements -> . READ LPAREN ID RAUXI RPAREN SEMICOLON Statements
+    (32) Statements -> . READ LPAREN SVar RAUXIV RPAREN SEMICOLON Statements
+    (33) Statements -> . CALL LPAREN ID CAUXI RPAREN SEMICOLON Statements
+    (34) Statements -> . empty
+    (35) SVar -> . ID VAUXI LCORCHETE VVAUXI expression VVVAUXI RCORCHETE
+    (36) SVar -> . ID VAUXI LCORCHETE VVAUXI expression VVVAUXI RCORCHETE LCORCHETE expression VVVVAUXI RCORCHETE
+    (74) empty -> .
+
+    ID              shift and go to state 58
+    FOR             shift and go to state 60
+    WHILE           shift and go to state 61
+    IF              shift and go to state 62
+    PRINTA          shift and go to state 63
+    READ            shift and go to state 64
+    CALL            shift and go to state 65
+    ENDMAIN         reduce using rule 74 (empty -> .)
+    ENDMETHOD       reduce using rule 74 (empty -> .)
+    ENDWHILE        reduce using rule 74 (empty -> .)
+    ENDTRUE         reduce using rule 74 (empty -> .)
+    ENDFOR          reduce using rule 74 (empty -> .)
+    ENDFALSE        reduce using rule 74 (empty -> .)
+
+    SVar                           shift and go to state 59
+    Statements                     shift and go to state 178
+    empty                          shift and go to state 66
+
+state 168
+
+    (33) Statements -> CALL LPAREN ID CAUXI RPAREN SEMICOLON . Statements
+    (23) Statements -> . ID ASIGNACION expression SEMICOLON Auxi Statements
+    (24) Statements -> . SVar ASIGNACION expression SEMICOLON AuxiV Statements
+    (25) Statements -> . FOR LPAREN ID ASIGNACION expression COMA FAUXI FFAUXI Comparison FFFAUXI RPAREN PUNTOS Statements FFFFAUXI ENDFOR SEMICOLON Statements
+    (26) Statements -> . WHILE WAUXI LPAREN Comparison WWAUXI RPAREN PUNTOS Statements WWWAUXI ENDWHILE SEMICOLON Statements
+    (27) Statements -> . IF LPAREN Comparison RPAREN IAUXI PUNTOS TRUE PUNTOS Statements ENDTRUE SEMICOLON FALSE PUNTOS IIAUXI Statements ENDFALSE SEMICOLON ENDIF SEMICOLON IIIAUXI Statements
+    (28) Statements -> . IF LPAREN Comparison RPAREN IAUXI PUNTOS TRUE PUNTOS Statements ENDTRUE SEMICOLON ENDIF SEMICOLON IIIAUXI Statements
+    (29) Statements -> . PRINTA LPAREN ID PAUXI RPAREN SEMICOLON Statements
+    (30) Statements -> . PRINTA LPAREN SVar PAUXIV RPAREN SEMICOLON Statements
+    (31) Statements -> . READ LPAREN ID RAUXI RPAREN SEMICOLON Statements
+    (32) Statements -> . READ LPAREN SVar RAUXIV RPAREN SEMICOLON Statements
+    (33) Statements -> . CALL LPAREN ID CAUXI RPAREN SEMICOLON Statements
+    (34) Statements -> . empty
+    (35) SVar -> . ID VAUXI LCORCHETE VVAUXI expression VVVAUXI RCORCHETE
+    (36) SVar -> . ID VAUXI LCORCHETE VVAUXI expression VVVAUXI RCORCHETE LCORCHETE expression VVVVAUXI RCORCHETE
+    (74) empty -> .
+
+    ID              shift and go to state 58
+    FOR             shift and go to state 60
+    WHILE           shift and go to state 61
+    IF              shift and go to state 62
+    PRINTA          shift and go to state 63
+    READ            shift and go to state 64
+    CALL            shift and go to state 65
+    ENDMAIN         reduce using rule 74 (empty -> .)
+    ENDMETHOD       reduce using rule 74 (empty -> .)
+    ENDWHILE        reduce using rule 74 (empty -> .)
+    ENDTRUE         reduce using rule 74 (empty -> .)
+    ENDFOR          reduce using rule 74 (empty -> .)
+    ENDFALSE        reduce using rule 74 (empty -> .)
+
+    Statements                     shift and go to state 179
+    SVar                           shift and go to state 59
+    empty                          shift and go to state 66
+
+state 169
+
+    (11) Tipo_A -> INT Arreglo2 ID TAUXI LCORCHETE INTEGER TTAUXI RCORCHETE LCORCHETE INTEGER TTTAUXI RCORCHETE . SEMICOLON
+
+    SEMICOLON       shift and go to state 180
+
+
+state 170
+
+    (12) Tipo_A -> FLO Arreglo2 ID TAUXI LCORCHETE INTEGER TTAUXI RCORCHETE LCORCHETE INTEGER TTTAUXI RCORCHETE . SEMICOLON
+
+    SEMICOLON       shift and go to state 181
+
+
+state 171
+
+    (35) SVar -> ID VAUXI LCORCHETE VVAUXI expression VVVAUXI RCORCHETE .
+    (36) SVar -> ID VAUXI LCORCHETE VVAUXI expression VVVAUXI RCORCHETE . LCORCHETE expression VVVVAUXI RCORCHETE
+
+    ASIGNACION      reduce using rule 35 (SVar -> ID VAUXI LCORCHETE VVAUXI expression VVVAUXI RCORCHETE .)
+    DIVIDE          reduce using rule 35 (SVar -> ID VAUXI LCORCHETE VVAUXI expression VVVAUXI RCORCHETE .)
+    TIMES           reduce using rule 35 (SVar -> ID VAUXI LCORCHETE VVAUXI expression VVVAUXI RCORCHETE .)
+    MINUS           reduce using rule 35 (SVar -> ID VAUXI LCORCHETE VVAUXI expression VVVAUXI RCORCHETE .)
+    SEMICOLON       reduce using rule 35 (SVar -> ID VAUXI LCORCHETE VVAUXI expression VVVAUXI RCORCHETE .)
+    PLUS            reduce using rule 35 (SVar -> ID VAUXI LCORCHETE VVAUXI expression VVVAUXI RCORCHETE .)
+    RPAREN          reduce using rule 35 (SVar -> ID VAUXI LCORCHETE VVAUXI expression VVVAUXI RCORCHETE .)
+    RCORCHETE       reduce using rule 35 (SVar -> ID VAUXI LCORCHETE VVAUXI expression VVVAUXI RCORCHETE .)
+    COMA            reduce using rule 35 (SVar -> ID VAUXI LCORCHETE VVAUXI expression VVVAUXI RCORCHETE .)
+    LCORCHETE       shift and go to state 182
+
+
+state 172
+
+    (25) Statements -> FOR LPAREN ID ASIGNACION expression COMA FAUXI . FFAUXI Comparison FFFAUXI RPAREN PUNTOS Statements FFFFAUXI ENDFOR SEMICOLON Statements
+    (47) FFAUXI -> .
+
+    ID              reduce using rule 47 (FFAUXI -> .)
+
+    FFAUXI                         shift and go to state 183
+
+state 173
+
+    (26) Statements -> WHILE WAUXI LPAREN Comparison WWAUXI RPAREN PUNTOS . Statements WWWAUXI ENDWHILE SEMICOLON Statements
+    (23) Statements -> . ID ASIGNACION expression SEMICOLON Auxi Statements
+    (24) Statements -> . SVar ASIGNACION expression SEMICOLON AuxiV Statements
+    (25) Statements -> . FOR LPAREN ID ASIGNACION expression COMA FAUXI FFAUXI Comparison FFFAUXI RPAREN PUNTOS Statements FFFFAUXI ENDFOR SEMICOLON Statements
+    (26) Statements -> . WHILE WAUXI LPAREN Comparison WWAUXI RPAREN PUNTOS Statements WWWAUXI ENDWHILE SEMICOLON Statements
+    (27) Statements -> . IF LPAREN Comparison RPAREN IAUXI PUNTOS TRUE PUNTOS Statements ENDTRUE SEMICOLON FALSE PUNTOS IIAUXI Statements ENDFALSE SEMICOLON ENDIF SEMICOLON IIIAUXI Statements
+    (28) Statements -> . IF LPAREN Comparison RPAREN IAUXI PUNTOS TRUE PUNTOS Statements ENDTRUE SEMICOLON ENDIF SEMICOLON IIIAUXI Statements
+    (29) Statements -> . PRINTA LPAREN ID PAUXI RPAREN SEMICOLON Statements
+    (30) Statements -> . PRINTA LPAREN SVar PAUXIV RPAREN SEMICOLON Statements
+    (31) Statements -> . READ LPAREN ID RAUXI RPAREN SEMICOLON Statements
+    (32) Statements -> . READ LPAREN SVar RAUXIV RPAREN SEMICOLON Statements
+    (33) Statements -> . CALL LPAREN ID CAUXI RPAREN SEMICOLON Statements
+    (34) Statements -> . empty
+    (35) SVar -> . ID VAUXI LCORCHETE VVAUXI expression VVVAUXI RCORCHETE
+    (36) SVar -> . ID VAUXI LCORCHETE VVAUXI expression VVVAUXI RCORCHETE LCORCHETE expression VVVVAUXI RCORCHETE
+    (74) empty -> .
+
+    ID              shift and go to state 58
+    FOR             shift and go to state 60
+    WHILE           shift and go to state 61
+    IF              shift and go to state 62
+    PRINTA          shift and go to state 63
+    READ            shift and go to state 64
+    CALL            shift and go to state 65
+    ENDWHILE        reduce using rule 74 (empty -> .)
+
+    Statements                     shift and go to state 184
+    SVar                           shift and go to state 59
+    empty                          shift and go to state 66
+
+state 174
+
+    (27) Statements -> IF LPAREN Comparison RPAREN IAUXI PUNTOS TRUE . PUNTOS Statements ENDTRUE SEMICOLON FALSE PUNTOS IIAUXI Statements ENDFALSE SEMICOLON ENDIF SEMICOLON IIIAUXI Statements
+    (28) Statements -> IF LPAREN Comparison RPAREN IAUXI PUNTOS TRUE . PUNTOS Statements ENDTRUE SEMICOLON ENDIF SEMICOLON IIIAUXI Statements
+
+    PUNTOS          shift and go to state 185
+
+
+state 175
+
+    (29) Statements -> PRINTA LPAREN ID PAUXI RPAREN SEMICOLON Statements .
+
+    ENDMAIN         reduce using rule 29 (Statements -> PRINTA LPAREN ID PAUXI RPAREN SEMICOLON Statements .)
+    ENDMETHOD       reduce using rule 29 (Statements -> PRINTA LPAREN ID PAUXI RPAREN SEMICOLON Statements .)
+    ENDWHILE        reduce using rule 29 (Statements -> PRINTA LPAREN ID PAUXI RPAREN SEMICOLON Statements .)
+    ENDTRUE         reduce using rule 29 (Statements -> PRINTA LPAREN ID PAUXI RPAREN SEMICOLON Statements .)
+    ENDFOR          reduce using rule 29 (Statements -> PRINTA LPAREN ID PAUXI RPAREN SEMICOLON Statements .)
+    ENDFALSE        reduce using rule 29 (Statements -> PRINTA LPAREN ID PAUXI RPAREN SEMICOLON Statements .)
+
+
+state 176
+
+    (30) Statements -> PRINTA LPAREN SVar PAUXIV RPAREN SEMICOLON Statements .
+
+    ENDMAIN         reduce using rule 30 (Statements -> PRINTA LPAREN SVar PAUXIV RPAREN SEMICOLON Statements .)
+    ENDMETHOD       reduce using rule 30 (Statements -> PRINTA LPAREN SVar PAUXIV RPAREN SEMICOLON Statements .)
+    ENDWHILE        reduce using rule 30 (Statements -> PRINTA LPAREN SVar PAUXIV RPAREN SEMICOLON Statements .)
+    ENDTRUE         reduce using rule 30 (Statements -> PRINTA LPAREN SVar PAUXIV RPAREN SEMICOLON Statements .)
+    ENDFOR          reduce using rule 30 (Statements -> PRINTA LPAREN SVar PAUXIV RPAREN SEMICOLON Statements .)
+    ENDFALSE        reduce using rule 30 (Statements -> PRINTA LPAREN SVar PAUXIV RPAREN SEMICOLON Statements .)
+
+
+state 177
+
+    (31) Statements -> READ LPAREN ID RAUXI RPAREN SEMICOLON Statements .
+
+    ENDMAIN         reduce using rule 31 (Statements -> READ LPAREN ID RAUXI RPAREN SEMICOLON Statements .)
+    ENDMETHOD       reduce using rule 31 (Statements -> READ LPAREN ID RAUXI RPAREN SEMICOLON Statements .)
+    ENDWHILE        reduce using rule 31 (Statements -> READ LPAREN ID RAUXI RPAREN SEMICOLON Statements .)
+    ENDTRUE         reduce using rule 31 (Statements -> READ LPAREN ID RAUXI RPAREN SEMICOLON Statements .)
+    ENDFOR          reduce using rule 31 (Statements -> READ LPAREN ID RAUXI RPAREN SEMICOLON Statements .)
+    ENDFALSE        reduce using rule 31 (Statements -> READ LPAREN ID RAUXI RPAREN SEMICOLON Statements .)
+
+
+state 178
+
+    (32) Statements -> READ LPAREN SVar RAUXIV RPAREN SEMICOLON Statements .
+
+    ENDMAIN         reduce using rule 32 (Statements -> READ LPAREN SVar RAUXIV RPAREN SEMICOLON Statements .)
+    ENDMETHOD       reduce using rule 32 (Statements -> READ LPAREN SVar RAUXIV RPAREN SEMICOLON Statements .)
+    ENDWHILE        reduce using rule 32 (Statements -> READ LPAREN SVar RAUXIV RPAREN SEMICOLON Statements .)
+    ENDTRUE         reduce using rule 32 (Statements -> READ LPAREN SVar RAUXIV RPAREN SEMICOLON Statements .)
+    ENDFOR          reduce using rule 32 (Statements -> READ LPAREN SVar RAUXIV RPAREN SEMICOLON Statements .)
+    ENDFALSE        reduce using rule 32 (Statements -> READ LPAREN SVar RAUXIV RPAREN SEMICOLON Statements .)
+
+
+state 179
+
+    (33) Statements -> CALL LPAREN ID CAUXI RPAREN SEMICOLON Statements .
+
+    ENDMAIN         reduce using rule 33 (Statements -> CALL LPAREN ID CAUXI RPAREN SEMICOLON Statements .)
+    ENDMETHOD       reduce using rule 33 (Statements -> CALL LPAREN ID CAUXI RPAREN SEMICOLON Statements .)
+    ENDWHILE        reduce using rule 33 (Statements -> CALL LPAREN ID CAUXI RPAREN SEMICOLON Statements .)
+    ENDTRUE         reduce using rule 33 (Statements -> CALL LPAREN ID CAUXI RPAREN SEMICOLON Statements .)
+    ENDFOR          reduce using rule 33 (Statements -> CALL LPAREN ID CAUXI RPAREN SEMICOLON Statements .)
+    ENDFALSE        reduce using rule 33 (Statements -> CALL LPAREN ID CAUXI RPAREN SEMICOLON Statements .)
+
+
+state 180
+
+    (11) Tipo_A -> INT Arreglo2 ID TAUXI LCORCHETE INTEGER TTAUXI RCORCHETE LCORCHETE INTEGER TTTAUXI RCORCHETE SEMICOLON .
+
+    METHOD          reduce using rule 11 (Tipo_A -> INT Arreglo2 ID TAUXI LCORCHETE INTEGER TTAUXI RCORCHETE LCORCHETE INTEGER TTTAUXI RCORCHETE SEMICOLON .)
+    INT             reduce using rule 11 (Tipo_A -> INT Arreglo2 ID TAUXI LCORCHETE INTEGER TTAUXI RCORCHETE LCORCHETE INTEGER TTTAUXI RCORCHETE SEMICOLON .)
+    FLO             reduce using rule 11 (Tipo_A -> INT Arreglo2 ID TAUXI LCORCHETE INTEGER TTAUXI RCORCHETE LCORCHETE INTEGER TTTAUXI RCORCHETE SEMICOLON .)
+    MAIN            reduce using rule 11 (Tipo_A -> INT Arreglo2 ID TAUXI LCORCHETE INTEGER TTAUXI RCORCHETE LCORCHETE INTEGER TTTAUXI RCORCHETE SEMICOLON .)
+
+
+state 181
+
+    (12) Tipo_A -> FLO Arreglo2 ID TAUXI LCORCHETE INTEGER TTAUXI RCORCHETE LCORCHETE INTEGER TTTAUXI RCORCHETE SEMICOLON .
+
+    METHOD          reduce using rule 12 (Tipo_A -> FLO Arreglo2 ID TAUXI LCORCHETE INTEGER TTAUXI RCORCHETE LCORCHETE INTEGER TTTAUXI RCORCHETE SEMICOLON .)
+    INT             reduce using rule 12 (Tipo_A -> FLO Arreglo2 ID TAUXI LCORCHETE INTEGER TTAUXI RCORCHETE LCORCHETE INTEGER TTTAUXI RCORCHETE SEMICOLON .)
+    FLO             reduce using rule 12 (Tipo_A -> FLO Arreglo2 ID TAUXI LCORCHETE INTEGER TTAUXI RCORCHETE LCORCHETE INTEGER TTTAUXI RCORCHETE SEMICOLON .)
+    MAIN            reduce using rule 12 (Tipo_A -> FLO Arreglo2 ID TAUXI LCORCHETE INTEGER TTAUXI RCORCHETE LCORCHETE INTEGER TTTAUXI RCORCHETE SEMICOLON .)
+
+
+state 182
+
+    (36) SVar -> ID VAUXI LCORCHETE VVAUXI expression VVVAUXI RCORCHETE LCORCHETE . expression VVVVAUXI RCORCHETE
+    (61) expression -> . expression PLUS S
+    (62) expression -> . S
+    (63) S -> . S MINUS T
+    (64) S -> . T
+    (65) T -> . T TIMES F
+    (66) T -> . F
+    (67) F -> . F DIVIDE R
+    (68) F -> . R
+    (69) R -> . ID
+    (70) R -> . SVar
+    (71) R -> . INTEGER
+    (72) R -> . FLOAT
+    (73) R -> . LPAREN expression RPAREN
+    (35) SVar -> . ID VAUXI LCORCHETE VVAUXI expression VVVAUXI RCORCHETE
+    (36) SVar -> . ID VAUXI LCORCHETE VVAUXI expression VVVAUXI RCORCHETE LCORCHETE expression VVVVAUXI RCORCHETE
+
+    ID              shift and go to state 88
+    INTEGER         shift and go to state 95
+    FLOAT           shift and go to state 96
+    LPAREN          shift and go to state 97
+
+    expression                     shift and go to state 186
+    S                              shift and go to state 90
+    T                              shift and go to state 91
+    F                              shift and go to state 92
+    R                              shift and go to state 93
+    SVar                           shift and go to state 94
+
+state 183
+
+    (25) Statements -> FOR LPAREN ID ASIGNACION expression COMA FAUXI FFAUXI . Comparison FFFAUXI RPAREN PUNTOS Statements FFFFAUXI ENDFOR SEMICOLON Statements
+    (58) Comparison -> . ID IGUALDADCOM ID
+    (59) Comparison -> . ID MAYORCOM ID
+    (60) Comparison -> . ID MENORCOM ID
+
+    ID              shift and go to state 103
+
+    Comparison                     shift and go to state 187
+
+state 184
+
+    (26) Statements -> WHILE WAUXI LPAREN Comparison WWAUXI RPAREN PUNTOS Statements . WWWAUXI ENDWHILE SEMICOLON Statements
+    (52) WWWAUXI -> .
+
+    ENDWHILE        reduce using rule 52 (WWWAUXI -> .)
+
+    WWWAUXI                        shift and go to state 188
+
+state 185
+
+    (27) Statements -> IF LPAREN Comparison RPAREN IAUXI PUNTOS TRUE PUNTOS . Statements ENDTRUE SEMICOLON FALSE PUNTOS IIAUXI Statements ENDFALSE SEMICOLON ENDIF SEMICOLON IIIAUXI Statements
+    (28) Statements -> IF LPAREN Comparison RPAREN IAUXI PUNTOS TRUE PUNTOS . Statements ENDTRUE SEMICOLON ENDIF SEMICOLON IIIAUXI Statements
+    (23) Statements -> . ID ASIGNACION expression SEMICOLON Auxi Statements
+    (24) Statements -> . SVar ASIGNACION expression SEMICOLON AuxiV Statements
+    (25) Statements -> . FOR LPAREN ID ASIGNACION expression COMA FAUXI FFAUXI Comparison FFFAUXI RPAREN PUNTOS Statements FFFFAUXI ENDFOR SEMICOLON Statements
+    (26) Statements -> . WHILE WAUXI LPAREN Comparison WWAUXI RPAREN PUNTOS Statements WWWAUXI ENDWHILE SEMICOLON Statements
+    (27) Statements -> . IF LPAREN Comparison RPAREN IAUXI PUNTOS TRUE PUNTOS Statements ENDTRUE SEMICOLON FALSE PUNTOS IIAUXI Statements ENDFALSE SEMICOLON ENDIF SEMICOLON IIIAUXI Statements
+    (28) Statements -> . IF LPAREN Comparison RPAREN IAUXI PUNTOS TRUE PUNTOS Statements ENDTRUE SEMICOLON ENDIF SEMICOLON IIIAUXI Statements
+    (29) Statements -> . PRINTA LPAREN ID PAUXI RPAREN SEMICOLON Statements
+    (30) Statements -> . PRINTA LPAREN SVar PAUXIV RPAREN SEMICOLON Statements
+    (31) Statements -> . READ LPAREN ID RAUXI RPAREN SEMICOLON Statements
+    (32) Statements -> . READ LPAREN SVar RAUXIV RPAREN SEMICOLON Statements
+    (33) Statements -> . CALL LPAREN ID CAUXI RPAREN SEMICOLON Statements
+    (34) Statements -> . empty
+    (35) SVar -> . ID VAUXI LCORCHETE VVAUXI expression VVVAUXI RCORCHETE
+    (36) SVar -> . ID VAUXI LCORCHETE VVAUXI expression VVVAUXI RCORCHETE LCORCHETE expression VVVVAUXI RCORCHETE
+    (74) empty -> .
+
+    ID              shift and go to state 58
+    FOR             shift and go to state 60
+    WHILE           shift and go to state 61
+    IF              shift and go to state 62
+    PRINTA          shift and go to state 63
+    READ            shift and go to state 64
+    CALL            shift and go to state 65
+    ENDTRUE         reduce using rule 74 (empty -> .)
+
+    Statements                     shift and go to state 189
+    SVar                           shift and go to state 59
+    empty                          shift and go to state 66
+
+state 186
+
+    (36) SVar -> ID VAUXI LCORCHETE VVAUXI expression VVVAUXI RCORCHETE LCORCHETE expression . VVVVAUXI RCORCHETE
+    (61) expression -> expression . PLUS S
+    (40) VVVVAUXI -> .
+
+    PLUS            shift and go to state 115
+    RCORCHETE       reduce using rule 40 (VVVVAUXI -> .)
+
+    VVVVAUXI                       shift and go to state 190
+
+state 187
+
+    (25) Statements -> FOR LPAREN ID ASIGNACION expression COMA FAUXI FFAUXI Comparison . FFFAUXI RPAREN PUNTOS Statements FFFFAUXI ENDFOR SEMICOLON Statements
+    (48) FFFAUXI -> .
+
+    RPAREN          reduce using rule 48 (FFFAUXI -> .)
+
+    FFFAUXI                        shift and go to state 191
+
+state 188
+
+    (26) Statements -> WHILE WAUXI LPAREN Comparison WWAUXI RPAREN PUNTOS Statements WWWAUXI . ENDWHILE SEMICOLON Statements
+
+    ENDWHILE        shift and go to state 192
+
+
+state 189
+
+    (27) Statements -> IF LPAREN Comparison RPAREN IAUXI PUNTOS TRUE PUNTOS Statements . ENDTRUE SEMICOLON FALSE PUNTOS IIAUXI Statements ENDFALSE SEMICOLON ENDIF SEMICOLON IIIAUXI Statements
+    (28) Statements -> IF LPAREN Comparison RPAREN IAUXI PUNTOS TRUE PUNTOS Statements . ENDTRUE SEMICOLON ENDIF SEMICOLON IIIAUXI Statements
+
+    ENDTRUE         shift and go to state 193
+
+
+state 190
+
+    (36) SVar -> ID VAUXI LCORCHETE VVAUXI expression VVVAUXI RCORCHETE LCORCHETE expression VVVVAUXI . RCORCHETE
+
+    RCORCHETE       shift and go to state 194
+
+
+state 191
+
+    (25) Statements -> FOR LPAREN ID ASIGNACION expression COMA FAUXI FFAUXI Comparison FFFAUXI . RPAREN PUNTOS Statements FFFFAUXI ENDFOR SEMICOLON Statements
+
+    RPAREN          shift and go to state 195
+
+
+state 192
+
+    (26) Statements -> WHILE WAUXI LPAREN Comparison WWAUXI RPAREN PUNTOS Statements WWWAUXI ENDWHILE . SEMICOLON Statements
+
+    SEMICOLON       shift and go to state 196
+
+
+state 193
+
+    (27) Statements -> IF LPAREN Comparison RPAREN IAUXI PUNTOS TRUE PUNTOS Statements ENDTRUE . SEMICOLON FALSE PUNTOS IIAUXI Statements ENDFALSE SEMICOLON ENDIF SEMICOLON IIIAUXI Statements
+    (28) Statements -> IF LPAREN Comparison RPAREN IAUXI PUNTOS TRUE PUNTOS Statements ENDTRUE . SEMICOLON ENDIF SEMICOLON IIIAUXI Statements
+
+    SEMICOLON       shift and go to state 197
+
+
+state 194
+
+    (36) SVar -> ID VAUXI LCORCHETE VVAUXI expression VVVAUXI RCORCHETE LCORCHETE expression VVVVAUXI RCORCHETE .
+
+    ASIGNACION      reduce using rule 36 (SVar -> ID VAUXI LCORCHETE VVAUXI expression VVVAUXI RCORCHETE LCORCHETE expression VVVVAUXI RCORCHETE .)
+    DIVIDE          reduce using rule 36 (SVar -> ID VAUXI LCORCHETE VVAUXI expression VVVAUXI RCORCHETE LCORCHETE expression VVVVAUXI RCORCHETE .)
+    TIMES           reduce using rule 36 (SVar -> ID VAUXI LCORCHETE VVAUXI expression VVVAUXI RCORCHETE LCORCHETE expression VVVVAUXI RCORCHETE .)
+    MINUS           reduce using rule 36 (SVar -> ID VAUXI LCORCHETE VVAUXI expression VVVAUXI RCORCHETE LCORCHETE expression VVVVAUXI RCORCHETE .)
+    SEMICOLON       reduce using rule 36 (SVar -> ID VAUXI LCORCHETE VVAUXI expression VVVAUXI RCORCHETE LCORCHETE expression VVVVAUXI RCORCHETE .)
+    PLUS            reduce using rule 36 (SVar -> ID VAUXI LCORCHETE VVAUXI expression VVVAUXI RCORCHETE LCORCHETE expression VVVVAUXI RCORCHETE .)
+    RPAREN          reduce using rule 36 (SVar -> ID VAUXI LCORCHETE VVAUXI expression VVVAUXI RCORCHETE LCORCHETE expression VVVVAUXI RCORCHETE .)
+    RCORCHETE       reduce using rule 36 (SVar -> ID VAUXI LCORCHETE VVAUXI expression VVVAUXI RCORCHETE LCORCHETE expression VVVVAUXI RCORCHETE .)
+    COMA            reduce using rule 36 (SVar -> ID VAUXI LCORCHETE VVAUXI expression VVVAUXI RCORCHETE LCORCHETE expression VVVVAUXI RCORCHETE .)
+
+
+state 195
+
+    (25) Statements -> FOR LPAREN ID ASIGNACION expression COMA FAUXI FFAUXI Comparison FFFAUXI RPAREN . PUNTOS Statements FFFFAUXI ENDFOR SEMICOLON Statements
+
+    PUNTOS          shift and go to state 198
+
+
+state 196
+
+    (26) Statements -> WHILE WAUXI LPAREN Comparison WWAUXI RPAREN PUNTOS Statements WWWAUXI ENDWHILE SEMICOLON . Statements
+    (23) Statements -> . ID ASIGNACION expression SEMICOLON Auxi Statements
+    (24) Statements -> . SVar ASIGNACION expression SEMICOLON AuxiV Statements
+    (25) Statements -> . FOR LPAREN ID ASIGNACION expression COMA FAUXI FFAUXI Comparison FFFAUXI RPAREN PUNTOS Statements FFFFAUXI ENDFOR SEMICOLON Statements
+    (26) Statements -> . WHILE WAUXI LPAREN Comparison WWAUXI RPAREN PUNTOS Statements WWWAUXI ENDWHILE SEMICOLON Statements
+    (27) Statements -> . IF LPAREN Comparison RPAREN IAUXI PUNTOS TRUE PUNTOS Statements ENDTRUE SEMICOLON FALSE PUNTOS IIAUXI Statements ENDFALSE SEMICOLON ENDIF SEMICOLON IIIAUXI Statements
+    (28) Statements -> . IF LPAREN Comparison RPAREN IAUXI PUNTOS TRUE PUNTOS Statements ENDTRUE SEMICOLON ENDIF SEMICOLON IIIAUXI Statements
+    (29) Statements -> . PRINTA LPAREN ID PAUXI RPAREN SEMICOLON Statements
+    (30) Statements -> . PRINTA LPAREN SVar PAUXIV RPAREN SEMICOLON Statements
+    (31) Statements -> . READ LPAREN ID RAUXI RPAREN SEMICOLON Statements
+    (32) Statements -> . READ LPAREN SVar RAUXIV RPAREN SEMICOLON Statements
+    (33) Statements -> . CALL LPAREN ID CAUXI RPAREN SEMICOLON Statements
+    (34) Statements -> . empty
+    (35) SVar -> . ID VAUXI LCORCHETE VVAUXI expression VVVAUXI RCORCHETE
+    (36) SVar -> . ID VAUXI LCORCHETE VVAUXI expression VVVAUXI RCORCHETE LCORCHETE expression VVVVAUXI RCORCHETE
+    (74) empty -> .
+
+    ID              shift and go to state 58
+    FOR             shift and go to state 60
+    WHILE           shift and go to state 61
+    IF              shift and go to state 62
+    PRINTA          shift and go to state 63
+    READ            shift and go to state 64
+    CALL            shift and go to state 65
+    ENDMAIN         reduce using rule 74 (empty -> .)
+    ENDMETHOD       reduce using rule 74 (empty -> .)
+    ENDWHILE        reduce using rule 74 (empty -> .)
+    ENDTRUE         reduce using rule 74 (empty -> .)
+    ENDFOR          reduce using rule 74 (empty -> .)
+    ENDFALSE        reduce using rule 74 (empty -> .)
+
+    Statements                     shift and go to state 199
+    SVar                           shift and go to state 59
+    empty                          shift and go to state 66
+
+state 197
+
+    (27) Statements -> IF LPAREN Comparison RPAREN IAUXI PUNTOS TRUE PUNTOS Statements ENDTRUE SEMICOLON . FALSE PUNTOS IIAUXI Statements ENDFALSE SEMICOLON ENDIF SEMICOLON IIIAUXI Statements
+    (28) Statements -> IF LPAREN Comparison RPAREN IAUXI PUNTOS TRUE PUNTOS Statements ENDTRUE SEMICOLON . ENDIF SEMICOLON IIIAUXI Statements
+
+    FALSE           shift and go to state 200
+    ENDIF           shift and go to state 201
+
+
+state 198
+
+    (25) Statements -> FOR LPAREN ID ASIGNACION expression COMA FAUXI FFAUXI Comparison FFFAUXI RPAREN PUNTOS . Statements FFFFAUXI ENDFOR SEMICOLON Statements
+    (23) Statements -> . ID ASIGNACION expression SEMICOLON Auxi Statements
+    (24) Statements -> . SVar ASIGNACION expression SEMICOLON AuxiV Statements
+    (25) Statements -> . FOR LPAREN ID ASIGNACION expression COMA FAUXI FFAUXI Comparison FFFAUXI RPAREN PUNTOS Statements FFFFAUXI ENDFOR SEMICOLON Statements
+    (26) Statements -> . WHILE WAUXI LPAREN Comparison WWAUXI RPAREN PUNTOS Statements WWWAUXI ENDWHILE SEMICOLON Statements
+    (27) Statements -> . IF LPAREN Comparison RPAREN IAUXI PUNTOS TRUE PUNTOS Statements ENDTRUE SEMICOLON FALSE PUNTOS IIAUXI Statements ENDFALSE SEMICOLON ENDIF SEMICOLON IIIAUXI Statements
+    (28) Statements -> . IF LPAREN Comparison RPAREN IAUXI PUNTOS TRUE PUNTOS Statements ENDTRUE SEMICOLON ENDIF SEMICOLON IIIAUXI Statements
+    (29) Statements -> . PRINTA LPAREN ID PAUXI RPAREN SEMICOLON Statements
+    (30) Statements -> . PRINTA LPAREN SVar PAUXIV RPAREN SEMICOLON Statements
+    (31) Statements -> . READ LPAREN ID RAUXI RPAREN SEMICOLON Statements
+    (32) Statements -> . READ LPAREN SVar RAUXIV RPAREN SEMICOLON Statements
+    (33) Statements -> . CALL LPAREN ID CAUXI RPAREN SEMICOLON Statements
+    (34) Statements -> . empty
+    (35) SVar -> . ID VAUXI LCORCHETE VVAUXI expression VVVAUXI RCORCHETE
+    (36) SVar -> . ID VAUXI LCORCHETE VVAUXI expression VVVAUXI RCORCHETE LCORCHETE expression VVVVAUXI RCORCHETE
+    (74) empty -> .
+
+    ID              shift and go to state 58
+    FOR             shift and go to state 60
+    WHILE           shift and go to state 61
+    IF              shift and go to state 62
+    PRINTA          shift and go to state 63
+    READ            shift and go to state 64
+    CALL            shift and go to state 65
+    ENDFOR          reduce using rule 74 (empty -> .)
+
+    Statements                     shift and go to state 202
+    SVar                           shift and go to state 59
+    empty                          shift and go to state 66
+
+state 199
+
+    (26) Statements -> WHILE WAUXI LPAREN Comparison WWAUXI RPAREN PUNTOS Statements WWWAUXI ENDWHILE SEMICOLON Statements .
+
+    ENDMAIN         reduce using rule 26 (Statements -> WHILE WAUXI LPAREN Comparison WWAUXI RPAREN PUNTOS Statements WWWAUXI ENDWHILE SEMICOLON Statements .)
+    ENDMETHOD       reduce using rule 26 (Statements -> WHILE WAUXI LPAREN Comparison WWAUXI RPAREN PUNTOS Statements WWWAUXI ENDWHILE SEMICOLON Statements .)
+    ENDWHILE        reduce using rule 26 (Statements -> WHILE WAUXI LPAREN Comparison WWAUXI RPAREN PUNTOS Statements WWWAUXI ENDWHILE SEMICOLON Statements .)
+    ENDTRUE         reduce using rule 26 (Statements -> WHILE WAUXI LPAREN Comparison WWAUXI RPAREN PUNTOS Statements WWWAUXI ENDWHILE SEMICOLON Statements .)
+    ENDFOR          reduce using rule 26 (Statements -> WHILE WAUXI LPAREN Comparison WWAUXI RPAREN PUNTOS Statements WWWAUXI ENDWHILE SEMICOLON Statements .)
+    ENDFALSE        reduce using rule 26 (Statements -> WHILE WAUXI LPAREN Comparison WWAUXI RPAREN PUNTOS Statements WWWAUXI ENDWHILE SEMICOLON Statements .)
+
+
+state 200
+
+    (27) Statements -> IF LPAREN Comparison RPAREN IAUXI PUNTOS TRUE PUNTOS Statements ENDTRUE SEMICOLON FALSE . PUNTOS IIAUXI Statements ENDFALSE SEMICOLON ENDIF SEMICOLON IIIAUXI Statements
+
+    PUNTOS          shift and go to state 203
+
+
+state 201
+
+    (28) Statements -> IF LPAREN Comparison RPAREN IAUXI PUNTOS TRUE PUNTOS Statements ENDTRUE SEMICOLON ENDIF . SEMICOLON IIIAUXI Statements
+
+    SEMICOLON       shift and go to state 204
+
+
+state 202
+
+    (25) Statements -> FOR LPAREN ID ASIGNACION expression COMA FAUXI FFAUXI Comparison FFFAUXI RPAREN PUNTOS Statements . FFFFAUXI ENDFOR SEMICOLON Statements
+    (49) FFFFAUXI -> .
+
+    ENDFOR          reduce using rule 49 (FFFFAUXI -> .)
+
+    FFFFAUXI                       shift and go to state 205
+
+state 203
+
+    (27) Statements -> IF LPAREN Comparison RPAREN IAUXI PUNTOS TRUE PUNTOS Statements ENDTRUE SEMICOLON FALSE PUNTOS . IIAUXI Statements ENDFALSE SEMICOLON ENDIF SEMICOLON IIIAUXI Statements
+    (54) IIAUXI -> .
+
+    ID              reduce using rule 54 (IIAUXI -> .)
+    FOR             reduce using rule 54 (IIAUXI -> .)
+    WHILE           reduce using rule 54 (IIAUXI -> .)
+    IF              reduce using rule 54 (IIAUXI -> .)
+    PRINTA          reduce using rule 54 (IIAUXI -> .)
+    READ            reduce using rule 54 (IIAUXI -> .)
+    CALL            reduce using rule 54 (IIAUXI -> .)
+    ENDFALSE        reduce using rule 54 (IIAUXI -> .)
+
+    IIAUXI                         shift and go to state 206
+
+state 204
+
+    (28) Statements -> IF LPAREN Comparison RPAREN IAUXI PUNTOS TRUE PUNTOS Statements ENDTRUE SEMICOLON ENDIF SEMICOLON . IIIAUXI Statements
+    (55) IIIAUXI -> .
+
+    ID              reduce using rule 55 (IIIAUXI -> .)
+    FOR             reduce using rule 55 (IIIAUXI -> .)
+    WHILE           reduce using rule 55 (IIIAUXI -> .)
+    IF              reduce using rule 55 (IIIAUXI -> .)
+    PRINTA          reduce using rule 55 (IIIAUXI -> .)
+    READ            reduce using rule 55 (IIIAUXI -> .)
+    CALL            reduce using rule 55 (IIIAUXI -> .)
+    ENDMAIN         reduce using rule 55 (IIIAUXI -> .)
+    ENDMETHOD       reduce using rule 55 (IIIAUXI -> .)
+    ENDWHILE        reduce using rule 55 (IIIAUXI -> .)
+    ENDTRUE         reduce using rule 55 (IIIAUXI -> .)
+    ENDFOR          reduce using rule 55 (IIIAUXI -> .)
+    ENDFALSE        reduce using rule 55 (IIIAUXI -> .)
+
+    IIIAUXI                        shift and go to state 207
+
+state 205
+
+    (25) Statements -> FOR LPAREN ID ASIGNACION expression COMA FAUXI FFAUXI Comparison FFFAUXI RPAREN PUNTOS Statements FFFFAUXI . ENDFOR SEMICOLON Statements
+
+    ENDFOR          shift and go to state 208
+
+
+state 206
+
+    (27) Statements -> IF LPAREN Comparison RPAREN IAUXI PUNTOS TRUE PUNTOS Statements ENDTRUE SEMICOLON FALSE PUNTOS IIAUXI . Statements ENDFALSE SEMICOLON ENDIF SEMICOLON IIIAUXI Statements
+    (23) Statements -> . ID ASIGNACION expression SEMICOLON Auxi Statements
+    (24) Statements -> . SVar ASIGNACION expression SEMICOLON AuxiV Statements
+    (25) Statements -> . FOR LPAREN ID ASIGNACION expression COMA FAUXI FFAUXI Comparison FFFAUXI RPAREN PUNTOS Statements FFFFAUXI ENDFOR SEMICOLON Statements
+    (26) Statements -> . WHILE WAUXI LPAREN Comparison WWAUXI RPAREN PUNTOS Statements WWWAUXI ENDWHILE SEMICOLON Statements
+    (27) Statements -> . IF LPAREN Comparison RPAREN IAUXI PUNTOS TRUE PUNTOS Statements ENDTRUE SEMICOLON FALSE PUNTOS IIAUXI Statements ENDFALSE SEMICOLON ENDIF SEMICOLON IIIAUXI Statements
+    (28) Statements -> . IF LPAREN Comparison RPAREN IAUXI PUNTOS TRUE PUNTOS Statements ENDTRUE SEMICOLON ENDIF SEMICOLON IIIAUXI Statements
+    (29) Statements -> . PRINTA LPAREN ID PAUXI RPAREN SEMICOLON Statements
+    (30) Statements -> . PRINTA LPAREN SVar PAUXIV RPAREN SEMICOLON Statements
+    (31) Statements -> . READ LPAREN ID RAUXI RPAREN SEMICOLON Statements
+    (32) Statements -> . READ LPAREN SVar RAUXIV RPAREN SEMICOLON Statements
+    (33) Statements -> . CALL LPAREN ID CAUXI RPAREN SEMICOLON Statements
+    (34) Statements -> . empty
+    (35) SVar -> . ID VAUXI LCORCHETE VVAUXI expression VVVAUXI RCORCHETE
+    (36) SVar -> . ID VAUXI LCORCHETE VVAUXI expression VVVAUXI RCORCHETE LCORCHETE expression VVVVAUXI RCORCHETE
+    (74) empty -> .
+
+    ID              shift and go to state 58
+    FOR             shift and go to state 60
+    WHILE           shift and go to state 61
+    IF              shift and go to state 62
+    PRINTA          shift and go to state 63
+    READ            shift and go to state 64
+    CALL            shift and go to state 65
+    ENDFALSE        reduce using rule 74 (empty -> .)
+
+    Statements                     shift and go to state 209
+    SVar                           shift and go to state 59
+    empty                          shift and go to state 66
+
+state 207
+
+    (28) Statements -> IF LPAREN Comparison RPAREN IAUXI PUNTOS TRUE PUNTOS Statements ENDTRUE SEMICOLON ENDIF SEMICOLON IIIAUXI . Statements
+    (23) Statements -> . ID ASIGNACION expression SEMICOLON Auxi Statements
+    (24) Statements -> . SVar ASIGNACION expression SEMICOLON AuxiV Statements
+    (25) Statements -> . FOR LPAREN ID ASIGNACION expression COMA FAUXI FFAUXI Comparison FFFAUXI RPAREN PUNTOS Statements FFFFAUXI ENDFOR SEMICOLON Statements
+    (26) Statements -> . WHILE WAUXI LPAREN Comparison WWAUXI RPAREN PUNTOS Statements WWWAUXI ENDWHILE SEMICOLON Statements
+    (27) Statements -> . IF LPAREN Comparison RPAREN IAUXI PUNTOS TRUE PUNTOS Statements ENDTRUE SEMICOLON FALSE PUNTOS IIAUXI Statements ENDFALSE SEMICOLON ENDIF SEMICOLON IIIAUXI Statements
+    (28) Statements -> . IF LPAREN Comparison RPAREN IAUXI PUNTOS TRUE PUNTOS Statements ENDTRUE SEMICOLON ENDIF SEMICOLON IIIAUXI Statements
+    (29) Statements -> . PRINTA LPAREN ID PAUXI RPAREN SEMICOLON Statements
+    (30) Statements -> . PRINTA LPAREN SVar PAUXIV RPAREN SEMICOLON Statements
+    (31) Statements -> . READ LPAREN ID RAUXI RPAREN SEMICOLON Statements
+    (32) Statements -> . READ LPAREN SVar RAUXIV RPAREN SEMICOLON Statements
+    (33) Statements -> . CALL LPAREN ID CAUXI RPAREN SEMICOLON Statements
+    (34) Statements -> . empty
+    (35) SVar -> . ID VAUXI LCORCHETE VVAUXI expression VVVAUXI RCORCHETE
+    (36) SVar -> . ID VAUXI LCORCHETE VVAUXI expression VVVAUXI RCORCHETE LCORCHETE expression VVVVAUXI RCORCHETE
+    (74) empty -> .
+
+    ID              shift and go to state 58
+    FOR             shift and go to state 60
+    WHILE           shift and go to state 61
+    IF              shift and go to state 62
+    PRINTA          shift and go to state 63
+    READ            shift and go to state 64
+    CALL            shift and go to state 65
+    ENDMAIN         reduce using rule 74 (empty -> .)
+    ENDMETHOD       reduce using rule 74 (empty -> .)
+    ENDWHILE        reduce using rule 74 (empty -> .)
+    ENDTRUE         reduce using rule 74 (empty -> .)
+    ENDFOR          reduce using rule 74 (empty -> .)
+    ENDFALSE        reduce using rule 74 (empty -> .)
+
+    Statements                     shift and go to state 210
+    SVar                           shift and go to state 59
+    empty                          shift and go to state 66
+
+state 208
+
+    (25) Statements -> FOR LPAREN ID ASIGNACION expression COMA FAUXI FFAUXI Comparison FFFAUXI RPAREN PUNTOS Statements FFFFAUXI ENDFOR . SEMICOLON Statements
+
+    SEMICOLON       shift and go to state 211
+
+
+state 209
+
+    (27) Statements -> IF LPAREN Comparison RPAREN IAUXI PUNTOS TRUE PUNTOS Statements ENDTRUE SEMICOLON FALSE PUNTOS IIAUXI Statements . ENDFALSE SEMICOLON ENDIF SEMICOLON IIIAUXI Statements
+
+    ENDFALSE        shift and go to state 212
+
+
+state 210
+
+    (28) Statements -> IF LPAREN Comparison RPAREN IAUXI PUNTOS TRUE PUNTOS Statements ENDTRUE SEMICOLON ENDIF SEMICOLON IIIAUXI Statements .
+
+    ENDMAIN         reduce using rule 28 (Statements -> IF LPAREN Comparison RPAREN IAUXI PUNTOS TRUE PUNTOS Statements ENDTRUE SEMICOLON ENDIF SEMICOLON IIIAUXI Statements .)
+    ENDMETHOD       reduce using rule 28 (Statements -> IF LPAREN Comparison RPAREN IAUXI PUNTOS TRUE PUNTOS Statements ENDTRUE SEMICOLON ENDIF SEMICOLON IIIAUXI Statements .)
+    ENDWHILE        reduce using rule 28 (Statements -> IF LPAREN Comparison RPAREN IAUXI PUNTOS TRUE PUNTOS Statements ENDTRUE SEMICOLON ENDIF SEMICOLON IIIAUXI Statements .)
+    ENDTRUE         reduce using rule 28 (Statements -> IF LPAREN Comparison RPAREN IAUXI PUNTOS TRUE PUNTOS Statements ENDTRUE SEMICOLON ENDIF SEMICOLON IIIAUXI Statements .)
+    ENDFOR          reduce using rule 28 (Statements -> IF LPAREN Comparison RPAREN IAUXI PUNTOS TRUE PUNTOS Statements ENDTRUE SEMICOLON ENDIF SEMICOLON IIIAUXI Statements .)
+    ENDFALSE        reduce using rule 28 (Statements -> IF LPAREN Comparison RPAREN IAUXI PUNTOS TRUE PUNTOS Statements ENDTRUE SEMICOLON ENDIF SEMICOLON IIIAUXI Statements .)
+
+
+state 211
+
+    (25) Statements -> FOR LPAREN ID ASIGNACION expression COMA FAUXI FFAUXI Comparison FFFAUXI RPAREN PUNTOS Statements FFFFAUXI ENDFOR SEMICOLON . Statements
+    (23) Statements -> . ID ASIGNACION expression SEMICOLON Auxi Statements
+    (24) Statements -> . SVar ASIGNACION expression SEMICOLON AuxiV Statements
+    (25) Statements -> . FOR LPAREN ID ASIGNACION expression COMA FAUXI FFAUXI Comparison FFFAUXI RPAREN PUNTOS Statements FFFFAUXI ENDFOR SEMICOLON Statements
+    (26) Statements -> . WHILE WAUXI LPAREN Comparison WWAUXI RPAREN PUNTOS Statements WWWAUXI ENDWHILE SEMICOLON Statements
+    (27) Statements -> . IF LPAREN Comparison RPAREN IAUXI PUNTOS TRUE PUNTOS Statements ENDTRUE SEMICOLON FALSE PUNTOS IIAUXI Statements ENDFALSE SEMICOLON ENDIF SEMICOLON IIIAUXI Statements
+    (28) Statements -> . IF LPAREN Comparison RPAREN IAUXI PUNTOS TRUE PUNTOS Statements ENDTRUE SEMICOLON ENDIF SEMICOLON IIIAUXI Statements
+    (29) Statements -> . PRINTA LPAREN ID PAUXI RPAREN SEMICOLON Statements
+    (30) Statements -> . PRINTA LPAREN SVar PAUXIV RPAREN SEMICOLON Statements
+    (31) Statements -> . READ LPAREN ID RAUXI RPAREN SEMICOLON Statements
+    (32) Statements -> . READ LPAREN SVar RAUXIV RPAREN SEMICOLON Statements
+    (33) Statements -> . CALL LPAREN ID CAUXI RPAREN SEMICOLON Statements
+    (34) Statements -> . empty
+    (35) SVar -> . ID VAUXI LCORCHETE VVAUXI expression VVVAUXI RCORCHETE
+    (36) SVar -> . ID VAUXI LCORCHETE VVAUXI expression VVVAUXI RCORCHETE LCORCHETE expression VVVVAUXI RCORCHETE
+    (74) empty -> .
+
+    ID              shift and go to state 58
+    FOR             shift and go to state 60
+    WHILE           shift and go to state 61
+    IF              shift and go to state 62
+    PRINTA          shift and go to state 63
+    READ            shift and go to state 64
+    CALL            shift and go to state 65
+    ENDMAIN         reduce using rule 74 (empty -> .)
+    ENDMETHOD       reduce using rule 74 (empty -> .)
+    ENDWHILE        reduce using rule 74 (empty -> .)
+    ENDTRUE         reduce using rule 74 (empty -> .)
+    ENDFOR          reduce using rule 74 (empty -> .)
+    ENDFALSE        reduce using rule 74 (empty -> .)
+
+    Statements                     shift and go to state 213
+    SVar                           shift and go to state 59
+    empty                          shift and go to state 66
+
+state 212
+
+    (27) Statements -> IF LPAREN Comparison RPAREN IAUXI PUNTOS TRUE PUNTOS Statements ENDTRUE SEMICOLON FALSE PUNTOS IIAUXI Statements ENDFALSE . SEMICOLON ENDIF SEMICOLON IIIAUXI Statements
+
+    SEMICOLON       shift and go to state 214
+
+
+state 213
+
+    (25) Statements -> FOR LPAREN ID ASIGNACION expression COMA FAUXI FFAUXI Comparison FFFAUXI RPAREN PUNTOS Statements FFFFAUXI ENDFOR SEMICOLON Statements .
+
+    ENDMAIN         reduce using rule 25 (Statements -> FOR LPAREN ID ASIGNACION expression COMA FAUXI FFAUXI Comparison FFFAUXI RPAREN PUNTOS Statements FFFFAUXI ENDFOR SEMICOLON Statements .)
+    ENDMETHOD       reduce using rule 25 (Statements -> FOR LPAREN ID ASIGNACION expression COMA FAUXI FFAUXI Comparison FFFAUXI RPAREN PUNTOS Statements FFFFAUXI ENDFOR SEMICOLON Statements .)
+    ENDWHILE        reduce using rule 25 (Statements -> FOR LPAREN ID ASIGNACION expression COMA FAUXI FFAUXI Comparison FFFAUXI RPAREN PUNTOS Statements FFFFAUXI ENDFOR SEMICOLON Statements .)
+    ENDTRUE         reduce using rule 25 (Statements -> FOR LPAREN ID ASIGNACION expression COMA FAUXI FFAUXI Comparison FFFAUXI RPAREN PUNTOS Statements FFFFAUXI ENDFOR SEMICOLON Statements .)
+    ENDFOR          reduce using rule 25 (Statements -> FOR LPAREN ID ASIGNACION expression COMA FAUXI FFAUXI Comparison FFFAUXI RPAREN PUNTOS Statements FFFFAUXI ENDFOR SEMICOLON Statements .)
+    ENDFALSE        reduce using rule 25 (Statements -> FOR LPAREN ID ASIGNACION expression COMA FAUXI FFAUXI Comparison FFFAUXI RPAREN PUNTOS Statements FFFFAUXI ENDFOR SEMICOLON Statements .)
+
+
+state 214
+
+    (27) Statements -> IF LPAREN Comparison RPAREN IAUXI PUNTOS TRUE PUNTOS Statements ENDTRUE SEMICOLON FALSE PUNTOS IIAUXI Statements ENDFALSE SEMICOLON . ENDIF SEMICOLON IIIAUXI Statements
+
+    ENDIF           shift and go to state 215
+
+
+state 215
+
+    (27) Statements -> IF LPAREN Comparison RPAREN IAUXI PUNTOS TRUE PUNTOS Statements ENDTRUE SEMICOLON FALSE PUNTOS IIAUXI Statements ENDFALSE SEMICOLON ENDIF . SEMICOLON IIIAUXI Statements
+
+    SEMICOLON       shift and go to state 216
+
+
+state 216
+
+    (27) Statements -> IF LPAREN Comparison RPAREN IAUXI PUNTOS TRUE PUNTOS Statements ENDTRUE SEMICOLON FALSE PUNTOS IIAUXI Statements ENDFALSE SEMICOLON ENDIF SEMICOLON . IIIAUXI Statements
+    (55) IIIAUXI -> .
+
+    ID              reduce using rule 55 (IIIAUXI -> .)
+    FOR             reduce using rule 55 (IIIAUXI -> .)
+    WHILE           reduce using rule 55 (IIIAUXI -> .)
+    IF              reduce using rule 55 (IIIAUXI -> .)
+    PRINTA          reduce using rule 55 (IIIAUXI -> .)
+    READ            reduce using rule 55 (IIIAUXI -> .)
+    CALL            reduce using rule 55 (IIIAUXI -> .)
+    ENDMAIN         reduce using rule 55 (IIIAUXI -> .)
+    ENDMETHOD       reduce using rule 55 (IIIAUXI -> .)
+    ENDWHILE        reduce using rule 55 (IIIAUXI -> .)
+    ENDTRUE         reduce using rule 55 (IIIAUXI -> .)
+    ENDFOR          reduce using rule 55 (IIIAUXI -> .)
+    ENDFALSE        reduce using rule 55 (IIIAUXI -> .)
+
+    IIIAUXI                        shift and go to state 217
+
+state 217
+
+    (27) Statements -> IF LPAREN Comparison RPAREN IAUXI PUNTOS TRUE PUNTOS Statements ENDTRUE SEMICOLON FALSE PUNTOS IIAUXI Statements ENDFALSE SEMICOLON ENDIF SEMICOLON IIIAUXI . Statements
+    (23) Statements -> . ID ASIGNACION expression SEMICOLON Auxi Statements
+    (24) Statements -> . SVar ASIGNACION expression SEMICOLON AuxiV Statements
+    (25) Statements -> . FOR LPAREN ID ASIGNACION expression COMA FAUXI FFAUXI Comparison FFFAUXI RPAREN PUNTOS Statements FFFFAUXI ENDFOR SEMICOLON Statements
+    (26) Statements -> . WHILE WAUXI LPAREN Comparison WWAUXI RPAREN PUNTOS Statements WWWAUXI ENDWHILE SEMICOLON Statements
+    (27) Statements -> . IF LPAREN Comparison RPAREN IAUXI PUNTOS TRUE PUNTOS Statements ENDTRUE SEMICOLON FALSE PUNTOS IIAUXI Statements ENDFALSE SEMICOLON ENDIF SEMICOLON IIIAUXI Statements
+    (28) Statements -> . IF LPAREN Comparison RPAREN IAUXI PUNTOS TRUE PUNTOS Statements ENDTRUE SEMICOLON ENDIF SEMICOLON IIIAUXI Statements
+    (29) Statements -> . PRINTA LPAREN ID PAUXI RPAREN SEMICOLON Statements
+    (30) Statements -> . PRINTA LPAREN SVar PAUXIV RPAREN SEMICOLON Statements
+    (31) Statements -> . READ LPAREN ID RAUXI RPAREN SEMICOLON Statements
+    (32) Statements -> . READ LPAREN SVar RAUXIV RPAREN SEMICOLON Statements
+    (33) Statements -> . CALL LPAREN ID CAUXI RPAREN SEMICOLON Statements
+    (34) Statements -> . empty
+    (35) SVar -> . ID VAUXI LCORCHETE VVAUXI expression VVVAUXI RCORCHETE
+    (36) SVar -> . ID VAUXI LCORCHETE VVAUXI expression VVVAUXI RCORCHETE LCORCHETE expression VVVVAUXI RCORCHETE
+    (74) empty -> .
+
+    ID              shift and go to state 58
+    FOR             shift and go to state 60
+    WHILE           shift and go to state 61
+    IF              shift and go to state 62
+    PRINTA          shift and go to state 63
+    READ            shift and go to state 64
+    CALL            shift and go to state 65
+    ENDMAIN         reduce using rule 74 (empty -> .)
+    ENDMETHOD       reduce using rule 74 (empty -> .)
+    ENDWHILE        reduce using rule 74 (empty -> .)
+    ENDTRUE         reduce using rule 74 (empty -> .)
+    ENDFOR          reduce using rule 74 (empty -> .)
+    ENDFALSE        reduce using rule 74 (empty -> .)
+
+    Statements                     shift and go to state 218
+    SVar                           shift and go to state 59
+    empty                          shift and go to state 66
+
+state 218
+
+    (27) Statements -> IF LPAREN Comparison RPAREN IAUXI PUNTOS TRUE PUNTOS Statements ENDTRUE SEMICOLON FALSE PUNTOS IIAUXI Statements ENDFALSE SEMICOLON ENDIF SEMICOLON IIIAUXI Statements .
+
+    ENDMAIN         reduce using rule 27 (Statements -> IF LPAREN Comparison RPAREN IAUXI PUNTOS TRUE PUNTOS Statements ENDTRUE SEMICOLON FALSE PUNTOS IIAUXI Statements ENDFALSE SEMICOLON ENDIF SEMICOLON IIIAUXI Statements .)
+    ENDMETHOD       reduce using rule 27 (Statements -> IF LPAREN Comparison RPAREN IAUXI PUNTOS TRUE PUNTOS Statements ENDTRUE SEMICOLON FALSE PUNTOS IIAUXI Statements ENDFALSE SEMICOLON ENDIF SEMICOLON IIIAUXI Statements .)
+    ENDWHILE        reduce using rule 27 (Statements -> IF LPAREN Comparison RPAREN IAUXI PUNTOS TRUE PUNTOS Statements ENDTRUE SEMICOLON FALSE PUNTOS IIAUXI Statements ENDFALSE SEMICOLON ENDIF SEMICOLON IIIAUXI Statements .)
+    ENDTRUE         reduce using rule 27 (Statements -> IF LPAREN Comparison RPAREN IAUXI PUNTOS TRUE PUNTOS Statements ENDTRUE SEMICOLON FALSE PUNTOS IIAUXI Statements ENDFALSE SEMICOLON ENDIF SEMICOLON IIIAUXI Statements .)
+    ENDFOR          reduce using rule 27 (Statements -> IF LPAREN Comparison RPAREN IAUXI PUNTOS TRUE PUNTOS Statements ENDTRUE SEMICOLON FALSE PUNTOS IIAUXI Statements ENDFALSE SEMICOLON ENDIF SEMICOLON IIIAUXI Statements .)
+    ENDFALSE        reduce using rule 27 (Statements -> IF LPAREN Comparison RPAREN IAUXI PUNTOS TRUE PUNTOS Statements ENDTRUE SEMICOLON FALSE PUNTOS IIAUXI Statements ENDFALSE SEMICOLON ENDIF SEMICOLON IIIAUXI Statements .)
+
