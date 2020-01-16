@@ -152,6 +152,7 @@ def p_Programa(p):
     Programa : START SAUXI PUNTOS V MethodsBlock SSAUXI MainBlock ENDSTART SEMICOLON SSSAUXI
              | empty
     '''
+    
 #Cuadruplos para el inicio del programa
 def p_SAUXI(p):
     '''
