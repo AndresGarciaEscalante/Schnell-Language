@@ -3,7 +3,7 @@
 ### January 2017
 
 ## Setting up the enviroment:
-For this project used the following programs:
+For this project the following set up was used:
 - Python 2.7.0
 - Pyhon-Lex-Yacc 3.0
 
@@ -77,7 +77,7 @@ t_MENORCOM = r'\<'
 t_COMA = r'\,'
 ```
 ### Structure of the some Statements 
-- complete structure of a Schnell code looks as follows:
+- complete structure of a **Schnell** code looks as follows:
 ```
 def p_Programa(p):
     '''
@@ -106,8 +106,8 @@ def p_Statements(p):
 ```
 
 ## Project Outcome
-The programming language Schnell was able to handle typical operations of a programming language such as: Aritmetic operands, call functions, If statements, For statements, While statements, Main Function, Different type of variables, initialization and declaration of variables, comparision, and arrays. 
+The programming language **Schnell** was able to handle typical operations of a programming language such as: Aritmetic operands, call functions, If statements, For statements, While statements, Main Function, Different type of variables, initialization and declaration of variables, comparision, and arrays. 
 
 ## Future Improvements
-- Being able to read the code from an external .txt file so we do not have to type the Schnell code on the terminal.
+- Being able to read the code from an external ```.txt file``` so we do not have to type the **Schnell** code on the terminal.
 - Optimize the code. 
